@@ -27,9 +27,7 @@ import seedu.address.model.task.Task;
 
 
 /**
-
  * Edits the details of an existing person in the address book.
-
  */
 
 public class EditCommand extends Command {
@@ -59,11 +57,8 @@ public class EditCommand extends Command {
     private final EditTaskDescriptor editTaskDescriptor;
 
     /**
-
      * @param index of the Task in the filtered Task list to edit
-
      * @param editPersonDescriptor details to edit the person with
-
      */
 
     public EditCommand(Index index, EditTaskDescriptor editTaskDescriptor) {
@@ -212,7 +207,6 @@ public class EditCommand extends Command {
         /**
          * Returns true if at least one field is edited.
          */
-
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, description, endDate, endTime, startDate, startTime);
         }
@@ -337,8 +331,6 @@ public class EditCommand extends Command {
 
 
 
-
-
 		/**
 		 * @return the tags
 		 */
@@ -382,76 +374,6 @@ public class EditCommand extends Command {
 			result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
 			result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
 			return result;
-
-		}
-
-
-
-		/* (non-Javadoc)
-		 * @see java.lang.Object#equals(java.lang.Object)
-		 */
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj) {
-				return true;
-			}
-			if (obj == null) {
-				return false;
-			}
-			if (getClass() != obj.getClass()) {
-				return false;
-			}
-			EditTaskDescriptor other = (EditTaskDescriptor) obj;
-			if (description == null) {
-				if (other.description != null) {
-					return false;
-				}
-			} else if (!description.equals(other.description)) {
-				return false;
-			}
-			if (duration == null) {
-				if (other.duration != null) {
-					return false;
-				}
-			} else if (!duration.equals(other.duration))
-				return false;
-			if (endDate == null) {
-				if (other.endDate != null) {
-					return false;
-				}
-			} else if (!endDate.equals(other.endDate)) {
-				return false;
-			}
-			if (endTime == null) {
-				if (other.endTime != null) {
-					return false;
-				}
-			} else if (!endTime.equals(other.endTime)) {
-				return false;
-			}
-			if (name == null) {
-				if (other.name != null) {
-					return false;
-				}
-			} else if (!name.equals(other.name)) {
-				return false;
-			}
-			if (startDate == null) {
-				if (other.startDate != null) {
-					return false;
-				}
-			} else if (!startDate.equals(other.startDate)) {
-				return false;
-			}
-			if (startTime == null) {
-				if (other.startTime != null) {
-					return false;
-				}				
-			} else if (!startTime.equals(other.startTime)) {
-				return false;
-			}
-			return true;
 		}
     }
 }

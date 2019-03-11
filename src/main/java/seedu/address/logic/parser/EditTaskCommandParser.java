@@ -11,7 +11,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_STARTTIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
-
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
