@@ -337,8 +337,6 @@ public class EditCommand extends Command {
 
 
 
-
-
 		/**
 		 * @return the tags
 		 */
