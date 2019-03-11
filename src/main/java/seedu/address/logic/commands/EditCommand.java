@@ -4,14 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.*;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
-
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-
-
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -171,7 +166,7 @@ public class EditCommand extends Command {
 
         public EditTaskDescriptor(Description description, Duration duration, EndDate endDate, EndTime endTime,
 				Name name, StartDate startDate, StartTime startTime, Set<Tag> tags) {
-			super();
+        	super();
 			this.description = description;
 			this.duration = duration;
 			this.endDate = endDate;
@@ -398,48 +393,64 @@ public class EditCommand extends Command {
 
 		@Override
 		public boolean equals(Object obj) {
-			if (this == obj)
+			if (this == obj) {
 				return true;
-			if (obj == null)
+			}
+			if (obj == null) {
 				return false;
-			if (getClass() != obj.getClass())
+			}
+			if (getClass() != obj.getClass()) {
 				return false;
+			}
 			EditTaskDescriptor other = (EditTaskDescriptor) obj;
 			if (description == null) {
-				if (other.description != null)
+				if (other.description != null) {
 					return false;
-			} else if (!description.equals(other.description))
+				}
+			} else if (!description.equals(other.description)) {
 				return false;
+			}
 			if (duration == null) {
-				if (other.duration != null)
+				if (other.duration != null) {
 					return false;
+				}
 			} else if (!duration.equals(other.duration))
 				return false;
 			if (endDate == null) {
-				if (other.endDate != null)
+				if (other.endDate != null) {
 					return false;
-			} else if (!endDate.equals(other.endDate))
+				}
+			} else if (!endDate.equals(other.endDate)) {
 				return false;
+			}
 			if (endTime == null) {
-				if (other.endTime != null)
+				if (other.endTime != null) {
 					return false;
-			} else if (!endTime.equals(other.endTime))
+				}
+			} else if (!endTime.equals(other.endTime)) {
 				return false;
+			}
 			if (name == null) {
-				if (other.name != null)
+				if (other.name != null) {
 					return false;
-			} else if (!name.equals(other.name))
+				}
+			} else if (!name.equals(other.name)) {
 				return false;
+			}
 			if (startDate == null) {
-				if (other.startDate != null)
+				if (other.startDate != null) {
 					return false;
-			} else if (!startDate.equals(other.startDate))
+				}
+			} else if (!startDate.equals(other.startDate)) {
 				return false;
+			}
 			if (startTime == null) {
-				if (other.startTime != null)
+				if (other.startTime != null) {
 					return false;
-			} else if (!startTime.equals(other.startTime))
+				}				
+			} else if (!startTime.equals(other.startTime)) {
 				return false;
+			}
 			return true;
 		}
     }
