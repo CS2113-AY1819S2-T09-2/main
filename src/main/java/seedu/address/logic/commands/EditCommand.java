@@ -27,9 +27,7 @@ import seedu.address.model.task.Task;
 
 
 /**
-
  * Edits the details of an existing person in the address book.
-
  */
 
 public class EditCommand extends Command {
@@ -59,11 +57,8 @@ public class EditCommand extends Command {
     private final EditTaskDescriptor editTaskDescriptor;
 
     /**
-
      * @param index of the Task in the filtered Task list to edit
-
      * @param editPersonDescriptor details to edit the person with
-
      */
 
     public EditCommand(Index index, EditTaskDescriptor editTaskDescriptor) {
@@ -212,7 +207,6 @@ public class EditCommand extends Command {
         /**
          * Returns true if at least one field is edited.
          */
-
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, description, endDate, endTime, startDate, startTime);
         }
@@ -380,8 +374,6 @@ public class EditCommand extends Command {
 			result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
 			result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
 			return result;
-
 		}
-
     }
 }
