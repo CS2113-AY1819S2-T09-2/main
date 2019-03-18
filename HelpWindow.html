@@ -14,7 +14,7 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-task-code-add-code">3.2. Adding a task: <code>add</code></a></li>
+<li><a href="#adding-a-task-code-add-code-code-a-code">3.2. Adding a task: <code>add</code>/<code>a</code></a></li>
 <li><a href="#listing-all-tasks-code-list-code">3.3. Listing all tasks : <code>list</code></a></li>
 <li><a href="#editing-a-task-code-edit-code">3.4. Editing a task : <code>edit</code></a></li>
 <li><a href="#searching-tasks-by-keywords-code-find-code">3.5. Searching tasks by keywords: <code>find</code></a></li>
@@ -75,10 +75,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all the tasks you have added</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>s/[startDateTime] e/endDateTime] t/[topic] d/[description]</code> : adds a new task to Tasketch.</p>
+<p><strong><code>add</code></strong><code>n/Do CS2113 sd/17-03-19 sd/10.00 ed/17-03-19 et/12.00 d/Do User Guide</code> : adds a new task to Tasketch.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>331</code> : deletes the task with taskid 331 in Tasketch.</p>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the task with index 3 in Tasketch.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -111,7 +111,7 @@ type either <code>add &#8230;&#8203;</code> or <code>a &#8230;&#8203;</code>.</p
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/TASK</code>, <code>TASK</code> is a parameter which can be used as <code>add n/Do MA1101R tutorial</code>.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>s/START_DATE e/END_DATE</code>, <code>e/END_DATE s/START_DATE</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>sd/START_DATE ed/END_DATE</code>, <code>ed/END_DATE sd/START_DATE</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -124,15 +124,23 @@ type either <code>add &#8230;&#8203;</code> or <code>a &#8230;&#8203;</code>.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-task-code-add-code"><a class="link" href="#adding-a-task-code-add-code">3.2. Adding a task: <code>add</code></a></h3>
+<h3 id="adding-a-task-code-add-code-code-a-code"><a class="link" href="#adding-a-task-code-add-code-code-a-code">3.2. Adding a task: <code>add</code>/<code>a</code></a></h3>
 <div class="paragraph">
-<p>Adds a task to Tasketch<br>
-Alias: <code>a</code><br>
+<p>Adds a task to the Tasketch<br>
 Format:<br>
-1. <code>add s/START_TIME e/END_TIME t/TOPIC d/DESCRIPTION</code><br>
-Usage: add task to the current date<br>
-2. <code>add d/DATE s/START_TIME e/END_TIME t/TOPIC d/DESCRIPTION</code><br>
-Usage: add task to a specific date</p>
+<code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A task can have any number of tags (including 0)
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -140,10 +148,10 @@ Usage: add task to a specific date</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add s/1300 e/1500 t/CS2113T lecture d/will be talking about version control</code></p>
+<p><code>add n/CS2113 sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control</code></p>
 </li>
 <li>
-<p><code>add d/21-02-2019 s/0800 e/1000 t/CS3235 lecture d/will be talking about network security</code></p>
+<p><code>add n/CS3235 sd/13-03-19 st/08.00 ed/13-03-19 et/10.00 d/Talk about network security t/important</code></p>
 </li>
 </ul>
 </div>
@@ -434,10 +442,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add [DATE] s/START_TIME e/END_TIME t/TOPIC d/DESCRIPTION</code><br>
-e.g.<br>
-1.<code>add s/START_TIME e/END_TIME t/TOPIC d/DESCRIPTION</code><br>
-2.<code>add d/21-02-2019 s/0800 e/1000 t/CS3235 lecture d/will be talking about network security</code></p>
+<p><strong>Add</strong> : <code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/CS2113 sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear [DATE]</code><br>
@@ -477,4 +483,4 @@ e.g. <code>list 02-2019</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 07:19:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 08:38:17 UTC</div></div></div></body></html>

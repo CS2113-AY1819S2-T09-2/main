@@ -17,29 +17,48 @@
 <li><a href="#configurations-to-do-before-writing-code">1.4. Configurations to do before writing code</a></li>
 </ul>
 </li>
-<li><a href="#target-user-profile">2. Target user profile</a></li>
-<li><a href="#value-proposition">3. Value proposition:</a></li>
-<li><a href="#appendix-a-user-stories">4. Appendix A: User stories</a>
+<li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
-<li><a href="#priority-1-function">4.1. Priority 1 function</a></li>
-<li><a href="#priority-2-function">4.2. Priority 2 function</a></li>
-<li><a href="#priority-3-function">4.3. Priority 3 function</a></li>
+<li><a href="#Design-Architecture">2.1. Architecture</a></li>
+<li><a href="#Design-Ui">2.2. UI component</a></li>
+<li><a href="#Design-Logic">2.3. Logic component</a></li>
+<li><a href="#Design-Model">2.4. Model component</a></li>
+<li><a href="#Design-Storage">2.5. Storage component</a></li>
+<li><a href="#Design-Commons">2.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#appendix-b-user-cases">5. Appendix B: User cases</a>
+<li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#help">5.1. Help</a></li>
-<li><a href="#add-a-task">5.2. Add a task</a></li>
-<li><a href="#editing-a-task">5.3. Editing a task</a></li>
-<li><a href="#search-a-task">5.4. Search a task</a></li>
-<li><a href="#delete-a-task-2">5.5. Delete a task</a></li>
-<li><a href="#clear-tasks-by-time-period">5.6. Clear tasks by time period</a></li>
-<li><a href="#list-tasks-by-time-period">5.7. List tasks by time period</a></li>
-<li><a href="#exit">5.8. Exit</a></li>
+<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
+<li><a href="#logging">3.2. Logging</a></li>
 </ul>
 </li>
-<li><a href="#appendix-c-non-functional-requirements">6. Appendix C: Non-functional requirements</a></li>
-<li><a href="#appendix-d-glossary">7. Appendix D: Glossary</a></li>
+<li><a href="#product-scope">Appendix A: Product Scope</a>
+<ul class="sectlevel2">
+<li><a href="#target-user-profile">A.1. Target user profile</a></li>
+</ul>
+</li>
+<li><a href="#user-stories">Appendix B: User Stories</a>
+<ul class="sectlevel2">
+<li><a href="#add-task-to-a-specific-date">B.1. Add task to a specific date</a></li>
+<li><a href="#priority-2-function">B.2. Priority 2 function</a></li>
+<li><a href="#priority-3-function">B.3. Priority 3 function</a></li>
+</ul>
+</li>
+<li><a href="#user-cases">Appendix C: User cases</a>
+<ul class="sectlevel2">
+<li><a href="#help">C.1. Help</a></li>
+<li><a href="#add-a-task">C.2. Add a task</a></li>
+<li><a href="#editing-a-task">C.3. Editing a task</a></li>
+<li><a href="#search-a-task">C.4. Search a task</a></li>
+<li><a href="#delete-a-task-2">C.5. Delete a task</a></li>
+<li><a href="#clear-tasks-by-time-period">C.6. Clear tasks by time period</a></li>
+<li><a href="#list-tasks-by-time-period">C.7. List tasks by time period</a></li>
+<li><a href="#exit">C.8. Exit</a></li>
+</ul>
+</li>
+<li><a href="#non-functional-requirements">Appendix D: Non-functional requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -186,31 +205,9 @@ This will generate all resources required by the application and tests.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check style-compliance as you write code.</p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="updating-documentation-to-match-your-fork"><a class="link" href="#updating-documentation-to-match-your-fork">1.4.2. Updating documentation to match your fork</a></h4>
-<div class="paragraph">
-<p>After forking the repo, the documentation will still have the SE-EDU branding and refer to the <code>se-edu/addressbook-level4</code> repo.</p>
-</div>
-<div class="paragraph">
-<p>If you plan to develop this fork as a separate product (i.e. instead of contributing to <code>se-edu/addressbook-level4</code>), you should do the following:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Configure the <a href="#Docs-SiteWideDocSettings">site-wide documentation settings</a> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/build.gradle"><code>build.gradle</code></a>, such as the <code>site-name</code>, to suit your own project.</p>
-</li>
-<li>
-<p>Replace the URL in the attribute <code>repoURL</code> in <a href="https://github.com/se-edu/addressbook-level4/tree/master/docs/DeveloperGuide.adoc"><code>DeveloperGuide.adoc</code></a> and <a href="https://github.com/se-edu/addressbook-level4/tree/master/docs/UserGuide.adoc"><code>UserGuide.adoc</code></a> with the URL of your fork.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-up-ci"><a class="link" href="#setting-up-ci">1.4.3. Setting up CI</a></h4>
+<h4 id="setting-up-ci"><a class="link" href="#setting-up-ci">1.4.2. Setting up CI</a></h4>
 <div class="paragraph">
 <p>Set up Travis to perform Continuous Integration (CI) for your fork. See <a href="UsingTravis.html">UsingTravis.adoc</a> to learn how to set it up.</p>
 </div>
@@ -245,28 +242,517 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">1.4.4. Getting started with coding</a></h4>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/Architecture.png" alt="Architecture" width="600">
+</div>
+<div class="title">Figure 1. Architecture Diagram</div>
+</div>
 <div class="paragraph">
-<p>When you are ready to start coding,</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level4/tree/master/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has only one class called <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+</li>
+<li>
+<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+The following class plays an important role at the architecture level:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The rest of the App consists of four components.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
+</li>
+<li>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
+</li>
+<li>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
+</li>
+<li>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each of the four components</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+</li>
+<li>
+<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+</div>
+<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SDforDeletePerson.png" alt="SDforDeletePerson" width="800">
+</div>
+<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+</div>
+<div class="paragraph">
+<p>The sections below give more details of each component.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+</div>
+<div class="title">Figure 4. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 5. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Get some sense of the overall design by reading <a href="#Design-Architecture">[Design-Architecture]</a>.</p>
+<p><code>Logic</code> uses the <code>TaskBookParser</code> class to parse the user command.</p>
 </li>
 <li>
-<p>Take a look at <a href="#GetStartedProgramming">[GetStartedProgramming]</a>.</p>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+<div class="title">Figure 7. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Task Book data.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Task&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can store a <code>Tag</code> list in <code>Task Book</code>, which <code>Task</code> can reference. This would allow <code>Task Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Task</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+<br>
+<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level4/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the Task Book data in json format and read it back.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<div class="paragraph">
+<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="target-user-profile"><a class="link" href="#target-user-profile">2. Target user profile</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section describes some noteworthy details on how certain features are implemented.</p>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The undo/redo mechanism is facilitated by <code>VersionedTaskBook</code>.
+It extends <code>TaskBook</code> with an undo/redo history, stored internally as an <code>taskBookStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedTaskBook#commit()</code>&#8201;&#8212;&#8201;Saves the current task book state in its history.</p>
+</li>
+<li>
+<p><code>VersionedTaskBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous task book state from its history.</p>
+</li>
+<li>
+<p><code>VersionedTaskBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone task book state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitTaskBook()</code>, <code>Model#undoTaskBook()</code> and <code>Model#redoTaskBook()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedTaskBook</code> will be initialized with the initial task book state, and the <code>currentStatePointer</code> pointing to that single task book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the task book. The <code>delete</code> command calls <code>Model#commitTaskBook()</code>, causing the modified state of the task book after the <code>delete 5</code> command executes to be saved in the <code>taskBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted task book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>add n/Do CS2113 &#8230;&#8203;</code> to add a new task. The <code>add</code> command also calls <code>Model#commitTaskBook()</code>, causing another modified task book state to be saved into the <code>taskBookStateList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitTaskBook()</code>, so the task book state will not be saved into the <code>taskBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that adding the task was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoTaskBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+</li>
+<li>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="target-user-profile"><a class="link" href="#target-user-profile">A.1. Target user profile</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -286,40 +772,18 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><strong>Value proposition</strong>:
+Manage tasks faster than a typical mouse/GUI driven apps</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="value-proposition"><a class="link" href="#value-proposition">3. Value proposition:</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Manage tasks faster than a typical mouse/GUI driven apps</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-a-user-stories"><a class="link" href="#appendix-a-user-stories">4. Appendix A: User stories</a></h2>
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="priority-1-function"><a class="link" href="#priority-1-function">4.1. Priority 1 function</a></h3>
-<div class="sect3">
-<h4 id="see-usage-function"><a class="link" href="#see-usage-function">4.1.1. See usage function</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:New user</p>
-</li>
-<li>
-<p>Benefit: User can refer to instructions when forgotten</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-task-to-a-specific-date"><a class="link" href="#add-task-to-a-specific-date">4.1.2. Add task to a specific date</a></h4>
+<h3 id="add-task-to-a-specific-date"><a class="link" href="#add-task-to-a-specific-date">B.1. Add task to a specific date</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -330,9 +794,8 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </li>
 </ol>
 </div>
-</div>
 <div class="sect3">
-<h4 id="delete-a-task"><a class="link" href="#delete-a-task">4.1.3. Delete a task</a></h4>
+<h4 id="delete-a-task"><a class="link" href="#delete-a-task">B.1.1. Delete a task</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -345,7 +808,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-task"><a class="link" href="#edit-a-task">4.1.4. Edit a task</a></h4>
+<h4 id="edit-a-task"><a class="link" href="#edit-a-task">B.1.2. Edit a task</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -358,7 +821,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-the-next-coming-task"><a class="link" href="#view-the-next-coming-task">4.1.5. View the next coming task</a></h4>
+<h4 id="view-the-next-coming-task"><a class="link" href="#view-the-next-coming-task">B.1.3. View the next coming task</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -371,7 +834,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-tasks"><a class="link" href="#clear-tasks">4.1.6. Clear tasks</a></h4>
+<h4 id="clear-tasks"><a class="link" href="#clear-tasks">B.1.4. Clear tasks</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -384,7 +847,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="exit-the-programme"><a class="link" href="#exit-the-programme">4.1.7. Exit the programme</a></h4>
+<h4 id="exit-the-programme"><a class="link" href="#exit-the-programme">B.1.5. Exit the programme</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -397,7 +860,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-one-task-by-part-of-the-description"><a class="link" href="#search-one-task-by-part-of-the-description">4.1.8. Search one task by part of the description</a></h4>
+<h4 id="search-one-task-by-part-of-the-description"><a class="link" href="#search-one-task-by-part-of-the-description">B.1.6. Search one task by part of the description</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -411,9 +874,9 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="priority-2-function"><a class="link" href="#priority-2-function">4.2. Priority 2 function</a></h3>
+<h3 id="priority-2-function"><a class="link" href="#priority-2-function">B.2. Priority 2 function</a></h3>
 <div class="sect3">
-<h4 id="highlight-today-s-date"><a class="link" href="#highlight-today-s-date">4.2.1. Highlight today’s date</a></h4>
+<h4 id="highlight-today-s-date"><a class="link" href="#highlight-today-s-date">B.2.1. Highlight today’s date</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -426,7 +889,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-priority-of-the-task"><a class="link" href="#add-priority-of-the-task">4.2.2. Add priority of the task</a></h4>
+<h4 id="add-priority-of-the-task"><a class="link" href="#add-priority-of-the-task">B.2.2. Add priority of the task</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -439,7 +902,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-priority-of-all-events"><a class="link" href="#view-priority-of-all-events">4.2.3. View priority of all events</a></h4>
+<h4 id="view-priority-of-all-events"><a class="link" href="#view-priority-of-all-events">B.2.3. View priority of all events</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -452,7 +915,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-tasks-of-certain-priority-of-this-week"><a class="link" href="#list-tasks-of-certain-priority-of-this-week">4.2.4. List tasks of certain priority of this week</a></h4>
+<h4 id="list-tasks-of-certain-priority-of-this-week"><a class="link" href="#list-tasks-of-certain-priority-of-this-week">B.2.4. List tasks of certain priority of this week</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -465,7 +928,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="classify-a-task"><a class="link" href="#classify-a-task">4.2.5. Classify a task</a></h4>
+<h4 id="classify-a-task"><a class="link" href="#classify-a-task">B.2.5. Classify a task</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -478,7 +941,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="seach-tasks-by-classification"><a class="link" href="#seach-tasks-by-classification">4.2.6. Seach tasks by classification</a></h4>
+<h4 id="seach-tasks-by-classification"><a class="link" href="#seach-tasks-by-classification">B.2.6. Seach tasks by classification</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -491,7 +954,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-reflection"><a class="link" href="#writing-reflection">4.2.7. Writing reflection</a></h4>
+<h4 id="writing-reflection"><a class="link" href="#writing-reflection">B.2.7. Writing reflection</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -504,7 +967,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="alarm"><a class="link" href="#alarm">4.2.8. Alarm</a></h4>
+<h4 id="alarm"><a class="link" href="#alarm">B.2.8. Alarm</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -518,9 +981,9 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="priority-3-function"><a class="link" href="#priority-3-function">4.3. Priority 3 function</a></h3>
+<h3 id="priority-3-function"><a class="link" href="#priority-3-function">B.3. Priority 3 function</a></h3>
 <div class="sect3">
-<h4 id="change-the-color-for-different-version-of-calendar"><a class="link" href="#change-the-color-for-different-version-of-calendar">4.3.1. Change the color for different version of calendar</a></h4>
+<h4 id="change-the-color-for-different-version-of-calendar"><a class="link" href="#change-the-color-for-different-version-of-calendar">B.3.1. Change the color for different version of calendar</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -533,7 +996,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="record-total-time-spent-on-each-classified-task-type"><a class="link" href="#record-total-time-spent-on-each-classified-task-type">4.3.2. Record total time spent on each classified task type</a></h4>
+<h4 id="record-total-time-spent-on-each-classified-task-type"><a class="link" href="#record-total-time-spent-on-each-classified-task-type">B.3.2. Record total time spent on each classified task type</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -546,7 +1009,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="analyze-the-total-time-spent"><a class="link" href="#analyze-the-total-time-spent">4.3.3. Analyze the total time spent</a></h4>
+<h4 id="analyze-the-total-time-spent"><a class="link" href="#analyze-the-total-time-spent">B.3.3. Analyze the total time spent</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -559,7 +1022,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="play-music-for-user"><a class="link" href="#play-music-for-user">4.3.4. Play music for user</a></h4>
+<h4 id="play-music-for-user"><a class="link" href="#play-music-for-user">B.3.4. Play music for user</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -572,7 +1035,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-out-weather-condition-for-current-location"><a class="link" href="#find-out-weather-condition-for-current-location">4.3.5. Find out weather condition for current location</a></h4>
+<h4 id="find-out-weather-condition-for-current-location"><a class="link" href="#find-out-weather-condition-for-current-location">B.3.5. Find out weather condition for current location</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -588,10 +1051,10 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-b-user-cases"><a class="link" href="#appendix-b-user-cases">5. Appendix B: User cases</a></h2>
+<h2 id="user-cases"><a class="link" href="#user-cases">Appendix C: User cases</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="help"><a class="link" href="#help">5.1. Help</a></h3>
+<h3 id="help"><a class="link" href="#help">C.1. Help</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -616,7 +1079,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-task"><a class="link" href="#add-a-task">5.2. Add a task</a></h3>
+<h3 id="add-a-task"><a class="link" href="#add-a-task">C.2. Add a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -663,7 +1126,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-task"><a class="link" href="#editing-a-task">5.3. Editing a task</a></h3>
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">C.3. Editing a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -688,7 +1151,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-a-task"><a class="link" href="#search-a-task">5.4. Search a task</a></h3>
+<h3 id="search-a-task"><a class="link" href="#search-a-task">C.4. Search a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -713,7 +1176,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-task-2"><a class="link" href="#delete-a-task-2">5.5. Delete a task</a></h3>
+<h3 id="delete-a-task-2"><a class="link" href="#delete-a-task-2">C.5. Delete a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -741,7 +1204,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-tasks-by-time-period"><a class="link" href="#clear-tasks-by-time-period">5.6. Clear tasks by time period</a></h3>
+<h3 id="clear-tasks-by-time-period"><a class="link" href="#clear-tasks-by-time-period">C.6. Clear tasks by time period</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -766,7 +1229,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-by-time-period"><a class="link" href="#list-tasks-by-time-period">5.7. List tasks by time period</a></h3>
+<h3 id="list-tasks-by-time-period"><a class="link" href="#list-tasks-by-time-period">C.7. List tasks by time period</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -843,7 +1306,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect2">
-<h3 id="exit"><a class="link" href="#exit">5.8. Exit</a></h3>
+<h3 id="exit"><a class="link" href="#exit">C.8. Exit</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -870,7 +1333,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-c-non-functional-requirements"><a class="link" href="#appendix-c-non-functional-requirements">6. Appendix C: Non-functional requirements</a></h2>
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non-functional requirements</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -892,7 +1355,7 @@ the tasks faster using commands than using the mouse.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-d-glossary"><a class="link" href="#appendix-d-glossary">7. Appendix D: Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -902,4 +1365,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 07:19:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 08:38:17 UTC</div></div></div></body></html>
