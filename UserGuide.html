@@ -452,22 +452,22 @@ Clear all the tasks in the storage.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1.<code>delete 1</code><br>
-2.<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-3.<code>redo</code> (reapplies the <code>delete 1</code> command)</p>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)</p>
 </li>
 <li>
-<p>1.<code>delete 1</code><br>
-2.<code>redo</code><br>
-The <code>redo</code> command fails as there are no undo commands executed previously.</p>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+ The <code>redo</code> command fails as there are no undo commands executed previously.</p>
 </li>
 <li>
-<p>1.<code>delete 1</code><br>
-2.<code>clear</code><br>
-3.<code>undo</code> (reverses the <code>clear</code> command)<br>
-4.<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-5.<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-6.<code>redo</code> (reapplies the <code>clear</code> command)</p>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)</p>
 </li>
 </ul>
 </div>
@@ -595,6 +595,9 @@ There is no need to save manually.</p>
 <li>
 <p>This feature tolerates a maximum of two wrong alphabets.</p>
 </li>
+<li>
+<p>This feature allows user to type in a command which has the same alphabets with one of the correct command word but in different order. The system can give suggestion even if the user type in the reverse command word.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -605,10 +608,13 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you wanted to type <code>clear</code> but the user typed <code>clarr</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>clear</code> instead.</p>
+<p>If the user wanted to type <code>clear</code> but he typed <code>clarr</code> instead, the system will tell the user that it is an unknown command, and would suggest the command <code>clear</code> instead.</p>
 </li>
 <li>
-<p>If you wanted to type <code>exit</code> but the user typed <code>ecot</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>exit</code> and <code>edit</code> instead.</p>
+<p>If the user wanted to type <code>exit</code> but he typed <code>ecot</code> instead, the system will tell the user that it is an unknown command, and would suggest the command <code>exit</code> and <code>edit</code> instead.</p>
+</li>
+<li>
+<p>If the user wanted to type <code>history</code> but he typed <code>hsitryo</code> instead, the system will tell the user that it is an unknown command, and would suggest the command <code>history</code> instead.</p>
 </li>
 </ul>
 </div>
@@ -682,4 +688,4 @@ e.g. <code>unset a</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-24 08:44:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-24 09:53:04 UTC</div></div></div></body></html>
