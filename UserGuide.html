@@ -29,6 +29,7 @@
 <li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.15. Saving the data</a></li>
 <li><a href="#getting-wrong-command-suggestions">3.16. Getting wrong command suggestions</a></li>
+<li><a href="#getting-auto-completed-command-words">3.17. Getting auto-completed command words</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -40,8 +41,8 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tasketch is for those who <strong>prefer to use a desktop app for managing their time by allocating time for each daily task. More importantly, Tasketch is *optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast,
-Tasketch can get your tasks' schedule done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Tasketch is for those who need to manage their time by allocating time for each daily task. More importantly, Tasketch is optimized for those who prefer to use a desktop app and work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI).<br>
+This user guide is introducing the features of Tasketch and show to the users how to use all the command lines. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -72,7 +73,7 @@ Tasketch can get your tasks' schedule done faster than traditional GUI apps. Int
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
+<p>Some examples you can try:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -109,7 +110,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <ul>
 <li>
 <p>Some commands have an alias, which you can also use to execute the command e.g. to add a task to Tasketch, you can
-type either <code>add &#8230;&#8203;</code> or <code>a &#8230;&#8203;</code>.</p>
+type either <code>clear</code> or <code>c</code>.</p>
 </li>
 <li>
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/TASK</code>, <code>TASK</code> is a parameter which can be used as <code>add n/Do MA1101R tutorial</code>.</p>
@@ -117,7 +118,56 @@ type either <code>add &#8230;&#8203;</code> or <code>a &#8230;&#8203;</code>.</p
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>sd/START_DATE ed/END_DATE</code>, <code>ed/END_DATE sd/START_DATE</code> is also acceptable.</p>
 </li>
+<li>
+<p>The format for dates is <code>dd-mm-yy</code>. For example: <code>25-03-19</code> means March 25th, 2019.</p>
+</li>
+<li>
+<p>The format for times is <code>hh.mm</code> and it is using 24-hour clock. For example: <code>13.00</code> means 1 o&#8217;clock in the afternoon.</p>
+</li>
 </ul>
+</div>
+<div id="category" class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There are only 5 valid categories for each task:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>a - Academic</p>
+</li>
+<li>
+<p>e - Entertainment</p>
+</li>
+<li>
+<p>c - Co-Curicullar Activity (CCA)</p>
+</li>
+<li>
+<p>r - Errands</p>
+</li>
+<li>
+<p>o - Others</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Any inputs other than above will be invalid.</p>
+</li>
+<li>
+<p>The length of time has to be in hour unit only. (e.g. 1 for 1 hour, 2 for 1 hour 30 minutes after round-up)</p>
+</li>
+<li>
+<p>To modify the time limit, just use back the same command and it will update the old to the new time limit.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -133,10 +183,7 @@ type either <code>add &#8230;&#8203;</code> or <code>a &#8230;&#8203;</code>.</p
 <p>Adds a task to the Tasketch</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION [c/CATEGORIES] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION [c/CATEGORIES] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -170,13 +217,16 @@ A task can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control</code></p>
+<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control</code><br>
+Adds a task named CS2113 task in the app. It starts at 12:00 on March 13rd, 2019 and it ends at 14:00 on the same day. The description for this task is to talk about version control.</p>
 </li>
 <li>
-<p><code>add n/MA1101R tutorial sd/14-03-19 st/12.00 ed/14-03-19 et/14.00 d/Tutorial 8 c/a</code></p>
+<p><code>add n/MA1101R tutorial sd/14-03-19 st/12.00 ed/14-03-19 et/14.00 d/Tutorial 8 c/a</code>
+Adds a task named MA1101R tutorial. It starts at 12:00 on March 14th, 2019 and ends at 14:00 on the same day. Its description is tutorial and it category is academic.</p>
 </li>
 <li>
-<p><code>add n/CS3235 lecture sd/13-03-19 st/08.00 ed/13-03-19 et/10.00 d/Talk about network security t/important</code></p>
+<p><code>add n/CS3235 lecture sd/13-03-19 st/08.00 ed/13-03-19 et/10.00 d/Talk about network security t/important</code>
+Adds a task named CS3235 lecture. It starts at 8:00 in March 3rd, 2019 and ends at 10:00. Its description is to talk about network security. The tag for it is 'important'.</p>
 </li>
 </ul>
 </div>
@@ -193,11 +243,11 @@ A task can have any number of tags (including 0)
 <ul>
 <li>
 <p><code>list</code><br>
-List all the tasks of today<br></p>
+Lists all the tasks of today<br></p>
 </li>
 <li>
 <p><code>list DATE</code><br>
-List all the tasks of that specific date<br></p>
+Lists all the tasks of that specific date<br></p>
 </li>
 </ul>
 </div>
@@ -208,15 +258,15 @@ List all the tasks of that specific date<br></p>
 <ul>
 <li>
 <p><code>list 02-2019</code><br>
-List all the tasks in February, 2019</p>
+Lists all the tasks in February, 2019</p>
 </li>
 <li>
 <p><code>list 20-02-2019</code><br>
-List all the tasks in February 20th, 2019</p>
+Lists all the tasks in February 20th, 2019</p>
 </li>
 <li>
 <p><code>list</code><br>
-List all the tasks in the storage</p>
+Lists all the tasks in the storage</p>
 </li>
 </ul>
 </div>
@@ -227,10 +277,7 @@ List all the tasks in the storage</p>
 <p>Edits an existing task in Tasketch.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>edit TASK_ID [n/NAME] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION]</code></p>
+<p>Format: <code>edit TASK_ID [n/NAME] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -255,9 +302,13 @@ List all the tasks in the storage</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>edit 1 st/12.00 et/14.00 t/GET1018 tut</code><br>
 Edits the start time and end time of the task with ID 1 to be <code>12.00</code> and <code>14.00</code> respectively. Change the topic to <code>GET1018 tut</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -266,10 +317,7 @@ Edits the start time and end time of the task with ID 1 to be <code>12.00</code>
 <p>Finds tasks whose topic or description contain any of the given keywords.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>search KEYWORD [MORE_KEYWORDS] &#8230;&#8203;</code></p>
+<p>Format: <code>search KEYWORD [MORE_KEYWORDS] &#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -316,10 +364,7 @@ Returns <code>CS2113T lecture</code> and <code>CS3235 lecture</code></p>
 <p>Deletes the specified task from Tasketch.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>delete INDEX_NUMBER</code></p>
+<p>Format: <code>delete INDEX_NUMBER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -365,11 +410,11 @@ Deletes the task with index number 1 in task list.</p>
 <ul>
 <li>
 <p><code>clear</code><br>
-Clear all the tasks in Tasketch</p>
+Clears all the tasks in Tasketch</p>
 </li>
 <li>
 <p><code>clear DATE</code><br>
-Clear all the tasks starting from the specified date</p>
+Clears all the tasks starting from the specified date</p>
 </li>
 </ul>
 </div>
@@ -380,15 +425,19 @@ Clear all the tasks starting from the specified date</p>
 <ul>
 <li>
 <p><code>clear 21-02-2019</code><br>
-Clear all the tasks which start from February 21st, 2019.</p>
+Clears all the tasks which start from February 21st, 2019.</p>
 </li>
 <li>
 <p><code>clear 02-2019</code><br>
-Clear all the tasks which start from February, 2019.</p>
+Clears all the tasks which start from February, 2019.</p>
+</li>
+<li>
+<p><code>clear before</code><br>
+Clears all the tasks which finished before today.</p>
 </li>
 <li>
 <p><code>clear</code><br>
-Clear all the tasks in the storage.</p>
+Clears all the tasks in the storage.</p>
 </li>
 </ul>
 </div>
@@ -399,10 +448,7 @@ Clear all the tasks in the storage.</p>
 <p>Lists all the commands that you have entered in reverse chronological order.<br></p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>history</code></p>
+<p>Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -411,10 +457,7 @@ Clear all the tasks in the storage.</p>
 <p>Restores the Tasetch to the state before the previous undoable command was executed.<br></p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>undo</code></p>
+<p>Format: <code>undo</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -422,15 +465,15 @@ Clear all the tasks in the storage.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1.<code>delete 1</code><br>
-2.<code>list</code><br>
-3.<code>undo</code> (reverses the <code>delete 1</code> command)</p>
+<p><code>delete 1</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)</p>
 </li>
 <li>
-<p>1.<code>delete 1</code><br>
-2.<code>clear</code><br>
-3.<code>undo</code>  (reverses the <code>delete 1</code> command)<br>
-4.<code>undo</code> (reverses the <code>clear</code> command)</p>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code>  (reverses the <code>delete 1</code> command)<br>
+<code>undo</code> (reverses the <code>clear</code> command)</p>
 </li>
 </ul>
 </div>
@@ -441,10 +484,7 @@ Clear all the tasks in the storage.</p>
 <p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>redo</code></p>
+<p>Format: <code>redo</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -479,74 +519,37 @@ Clear all the tasks in the storage.</p>
 Upon adding a task to a category and leads to time limit, you will not able to add it into that category for that week.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>set CATEGORY TIME_LENGTH</code></p>
-</div>
-<div id="category" class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>There are only 5 valid categories:<br></p>
-<div class="ulist">
-<ul>
-<li>
-<p>a - Academic</p>
-</li>
-<li>
-<p>e - Entertainment</p>
-</li>
-<li>
-<p>c - Co-Curicullar Activity (CCA)</p>
-</li>
-<li>
-<p>r - Errands</p>
-</li>
-<li>
-<p>o - Others</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Any inputs other than above will be invalid.</p>
-</li>
-<li>
-<p>The length of time has to be in hour unit only. (e.g. 1 for 1 hour, 2 for 1 hour 30 minutes after round-up)</p>
-</li>
-<li>
-<p>To modify the time limit, just use back the same command and it will update the old to the new time limit.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Format: <code>set CATEGORY TIME_LENGTH</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
-<div class="paragraph">
-<p><code>set a 40</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set a 40</code><br>
+Sets the time limit to 40 hours for the academic category.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="removing-time-limit-of-a-task-category-code-unset-code"><a class="link" href="#removing-time-limit-of-a-task-category-code-unset-code">3.12. Removing time limit of a task category : <code>unset</code></a></h3>
 <div class="paragraph">
-<p>Removes weekly time limit of a task category.<br>
-After removing the time limit, you will be able to add more tasks into that category as usual.</p>
+<p>Removes weekly time limit of a task category. After removing the time limit, you will be able to add more tasks into that category as usual.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>unset CATEGORY</code></p>
+<p>Format: <code>unset CATEGORY</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><code>unset a</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -555,10 +558,7 @@ After removing the time limit, you will be able to add more tasks into that cate
 <p>Shows all the remaining time before reaching the limit for all the task category</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>show</code></p>
+<p>Format: <code>show</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -567,10 +567,7 @@ After removing the time limit, you will be able to add more tasks into that cate
 <p>Exits the program.<br></p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="paragraph">
-<p><code>exit</code></p>
+<p>Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -615,6 +612,51 @@ There is no need to save manually.</p>
 </li>
 <li>
 <p>If the user wanted to type <code>history</code> but he typed <code>hsitryo</code> instead, the system will tell the user that it is an unknown command, and would suggest the command <code>history</code> instead.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getting-auto-completed-command-words"><a class="link" href="#getting-auto-completed-command-words">3.17. Getting auto-completed command words</a></h3>
+<div class="paragraph">
+<p>Receives a suggestion of the most similar correct command word while typing in users' command. Press the <code>TAB</code> key while typing a command halfway to get a suggestion on the most possible command without having to navigate to the help window.</p>
+</div>
+<div class="paragraph">
+<p>If there are two commands that are equally similar to hat has typed in by the user, the system will automatically fill in one of them.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The input is case sensitive.</p>
+</li>
+<li>
+<p>If there are a few mistakes in what is typed by the user, press <code>TAB</code> will automatically correct the command for users.</p>
+</li>
+<li>
+<p>However if the user type in some random alphabets, and press <code>TAB</code>, the system will not auto complete the commands for users.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>While typing <code>his</code> to get <code>history</code> command, press <code>TAB</code>.<br>
+The <code>history</code> command will automatically be filled in.</p>
+</li>
+<li>
+<p>While typing <code>ez</code>, press <code>TAB</code>.<br>
+The <code>edit</code> command will automatically be filled in even if <code>exit</code> command is equally similar to <code>ez</code>.</p>
+</li>
+<li>
+<p>While typing <code>hosdfqwehfjnihef</code>, and press <code>TAB</code>.<br>
+The system will not auto-complete a command for the user.</p>
 </li>
 </ul>
 </div>
@@ -688,4 +730,4 @@ e.g. <code>unset a</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 07:32:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 11:41:42 UTC</div></div></div></body></html>
