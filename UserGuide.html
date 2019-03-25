@@ -23,13 +23,14 @@
 <li><a href="#listing-entered-commands-code-history-code-code-h-code">3.8. Listing entered commands : <code>history</code>/<code>h</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code-code-u-code">3.9. Undoing previous command : <code>undo</code>/<code>u</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code-code-r-code">3.10. Redoing the previously undone command : <code>redo</code>/<code>r</code></a></li>
-<li><a href="#setting-time-limit-to-a-task-category-code-set-code">3.11. Setting time limit to a task category : <code>set</code></a></li>
-<li><a href="#removing-time-limit-of-a-task-category-code-unset-code">3.12. Removing time limit of a task category : <code>unset</code></a></li>
-<li><a href="#showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code">3.13. Showing remaining time to the limit of all task categories : <code>show</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#getting-wrong-command-suggestions">3.16. Getting wrong command suggestions</a></li>
-<li><a href="#getting-auto-completed-command-words">3.17. Getting auto-completed command words</a></li>
+<li><a href="#reminding-the-users-of-the-nearest-task-code-remind-code">3.11. Reminding the users of the nearest task : <code>remind</code></a></li>
+<li><a href="#setting-time-limit-to-a-task-category-code-set-code">3.12. Setting time limit to a task category : <code>set</code></a></li>
+<li><a href="#removing-time-limit-of-a-task-category-code-unset-code">3.13. Removing time limit of a task category : <code>unset</code></a></li>
+<li><a href="#showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code">3.14. Showing remaining time to the limit of all task categories : <code>show</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#getting-wrong-command-suggestions">3.17. Getting wrong command suggestions</a></li>
+<li><a href="#getting-auto-completed-command-words">3.18. Getting auto-completed command words</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -513,7 +514,66 @@ Clears all the tasks in the storage.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-time-limit-to-a-task-category-code-set-code"><a class="link" href="#setting-time-limit-to-a-task-category-code-set-code">3.11. Setting time limit to a task category : <code>set</code></a></h3>
+<h3 id="reminding-the-users-of-the-nearest-task-code-remind-code"><a class="link" href="#reminding-the-users-of-the-nearest-task-code-remind-code">3.11. Reminding the users of the nearest task : <code>remind</code></a></h3>
+<div class="paragraph">
+<p>Shows to the user the nearest tasks of certain category.<br></p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind start</code><br>
+Reminds the users of most recently begin tasks of all categories.<br></p>
+</li>
+<li>
+<p><code>remind ddl</code><br>
+Remind the users of most recent deadline of all categories.<br></p>
+</li>
+<li>
+<p><code>remind a/e/c/r/o ddl/start</code><br>
+Remind the users of most recent start tasks or deadline of specified category.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>"a" - Academic<br></p>
+</li>
+<li>
+<p>"e" - Entertainment<br></p>
+</li>
+<li>
+<p>"c" - Co-Curricular Activity (CCA)<br></p>
+</li>
+<li>
+<p>"r" - Errand<br></p>
+</li>
+<li>
+<p>"o" - Other</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind e start</code><br>
+Shows a list of nearest start tasks of "entertainment" category.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-time-limit-to-a-task-category-code-set-code"><a class="link" href="#setting-time-limit-to-a-task-category-code-set-code">3.12. Setting time limit to a task category : <code>set</code></a></h3>
 <div class="paragraph">
 <p>Sets weekly time limit for a task category.<br>
 Upon adding a task to a category and leads to time limit, you will not able to add it into that category for that week.</p>
@@ -534,7 +594,7 @@ Sets the time limit to 40 hours for the academic category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-time-limit-of-a-task-category-code-unset-code"><a class="link" href="#removing-time-limit-of-a-task-category-code-unset-code">3.12. Removing time limit of a task category : <code>unset</code></a></h3>
+<h3 id="removing-time-limit-of-a-task-category-code-unset-code"><a class="link" href="#removing-time-limit-of-a-task-category-code-unset-code">3.13. Removing time limit of a task category : <code>unset</code></a></h3>
 <div class="paragraph">
 <p>Removes weekly time limit of a task category. After removing the time limit, you will be able to add more tasks into that category as usual.</p>
 </div>
@@ -553,7 +613,7 @@ Sets the time limit to 40 hours for the academic category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code"><a class="link" href="#showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code">3.13. Showing remaining time to the limit of all task categories : <code>show</code></a></h3>
+<h3 id="showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code"><a class="link" href="#showing-remaining-time-to-the-limit-of-all-task-categories-code-show-code">3.14. Showing remaining time to the limit of all task categories : <code>show</code></a></h3>
 <div class="paragraph">
 <p>Shows all the remaining time before reaching the limit for all the task category</p>
 </div>
@@ -562,7 +622,7 @@ Sets the time limit to 40 hours for the academic category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br></p>
 </div>
@@ -571,14 +631,14 @@ Sets the time limit to 40 hours for the academic category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>Tasketch data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-wrong-command-suggestions"><a class="link" href="#getting-wrong-command-suggestions">3.16. Getting wrong command suggestions</a></h3>
+<h3 id="getting-wrong-command-suggestions"><a class="link" href="#getting-wrong-command-suggestions">3.17. Getting wrong command suggestions</a></h3>
 <div class="paragraph">
 <p>Suggests to users what they have typed wrongly automatically, by giving a list of closest approximations of word through the message box after pressing enter.<br></p>
 </div>
@@ -617,7 +677,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-auto-completed-command-words"><a class="link" href="#getting-auto-completed-command-words">3.17. Getting auto-completed command words</a></h3>
+<h3 id="getting-auto-completed-command-words"><a class="link" href="#getting-auto-completed-command-words">3.18. Getting auto-completed command words</a></h3>
 <div class="paragraph">
 <p>Receives a suggestion of the most similar correct command word while typing in users' command. Press the <code>TAB</code> key while typing a command halfway to get a suggestion on the most possible command without having to navigate to the help window.</p>
 </div>
@@ -730,4 +790,4 @@ e.g. <code>unset a</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 12:19:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-25 12:23:24 UTC</div></div></div></body></html>
