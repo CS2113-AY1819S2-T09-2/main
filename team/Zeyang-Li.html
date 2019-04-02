@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Zeyang-Li - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Zeyang Li - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Zeyang-Li - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Zeyang Li - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-tasketch"><a class="link" href="#project-tasketch">PROJECT: Tasketch</a></h2>
 <div class="sectionbody">
 <hr>
@@ -10,7 +10,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tasketch is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Tasketch is an application that helps you to manage your everyday time by giving you an overview of all the time planned
+for all the tasks in a daily manner. It also helps you to be aware of all the tasks dateline too.</p>
 </div>
 </div>
 </div>
@@ -20,29 +21,59 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to clear all tasks or clear tasks which start from one specific date or month, undo and redo the previous command</strong></p>
+<p><strong>Major enhancement</strong>:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added the ability to clear tasks which start from one specific date or month and also clear all tasks that are finished before today.<br></p>
+</li>
+<li>
+<p>Added the ability to give users suggestion when they type the command words wrongly.<br></p>
+</li>
+<li>
+<p>Still working on the import and export feature.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: What it does: allows the user to exit the programme and to clear some tasks that are no longer needed on the daily basis or the monthly basis or even clear all tasks in the storage. Besides, it also allow users to undo and redo the previous command.</p>
+<p>What it does:<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>It allows the user to clear some tasks that are no longer needed on the daily basis or the monthly basis or even clear all finished tasks in the storage.<br></p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make clear a branch of tasks in the app and recover form the previous command in case users have mad a mistake.</p>
+<p>It is more user friendly because the system will be smart to guess what is the most similar command with the wrongly typed command word.<br></p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>It will also allow the users to import or export the tasks in Json file.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Justification:<br>
+This feature improves the product significantly because a user can make clear a branch of tasks in the app. And when users have forgot or typed wrongly a command word, it will give suggestions to them. Also, it allows the app to be able to linked with the outside files.</p>
+</li>
+<li>
+<p>Highlights:<br>
+This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+<li>
+<p>Credits:<br>
+<em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p><strong>Minor enhancement</strong>: the ability to open help window and to exit the program.</p>
+</ol>
+</div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Minor enhancement</strong>:<br>
+Changed a bit of the ability to open help window, to exit the program and to undo and redo the previous command.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/java/seedu/address/export">Export code</a>] [<a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/java/seedu/address/commons/events">Events code</a>][<a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/java/seedu/address/logic/suggestions">Suggestion code</a>][<a href="https://github.com/CS2113-AY1819S2-T09-2/main/blob/master/src/main/java/seedu/address/logic/parser/ClearCommandParser.java">Clear Command Parser</a>][<a href="https://github.com/CS2113-AY1819S2-T09-2/main/blob/master/src/main/java/seedu/address/logic/commands/ClearCommand.java">Clear Command</a>][<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=Zeyang-Li&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master">RepoSence Report</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,7 +84,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.1</code> - <code>v1.2</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.3</code> (2 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -63,10 +94,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the clear command (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
 </li>
 </ul>
 </div>
@@ -76,7 +104,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide, developer guide, Readme: <a href="https://github.com">#14</a></p>
 </li>
 </ul>
 </div>
@@ -95,7 +123,7 @@
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
 <li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Some parts of the input suggestion feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
 </li>
 </ul>
 </div>
@@ -105,10 +133,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>bring in a third party library (opencsv) to the project (<a href="https://github.com">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +142,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +158,174 @@
 </tr>
 </tbody>
 </table>
+<div class="sect4">
+<h5 id="clearing-all-tasks-code-clear-code-code-c-code"><a class="link" href="#clearing-all-tasks-code-clear-code-code-c-code">Clearing all tasks : <code>clear</code>/<code>c</code></a></h5>
+<div class="paragraph">
+<p>If you have done with the tasks, simply clear them from the Tasketch, so that they will not disrupt your time planning.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear</code><br>
+Clears all the tasks in Tasketch</p>
+</li>
+<li>
+<p><code>clear DATE</code><br>
+Clears all the tasks starting from the specified date</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear 21-02-2019</code><br>
+Clears all the tasks which start from February 21st, 2019.</p>
+</li>
+<li>
+<p><code>clear 02-2019</code><br>
+Clears all the tasks which start from February, 2019.</p>
+</li>
+<li>
+<p><code>clear before</code><br>
+Clears all the tasks which finished before today.</p>
+</li>
+<li>
+<p><code>clear</code><br>
+Clears all the tasks in the storage.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+The tasks of your date choice should be cleared from the task list on the left of the app.<br>
+The correspond time duration for those tasks will be deducted from the Daily Time Planner.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-u-code">Undoing previous command : <code>undo</code>/<code>u</code></a></h4>
+<div class="paragraph">
+<p>Restores the Tasetch to the state before the previous undoable command was executed.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code>  (reverses the <code>delete 1</code> command)<br>
+<code>undo</code> (reverses the <code>clear</code> command)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-r-code">Redoing the previously undone command : <code>redo</code>/<code>r</code></a></h4>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+ The <code>redo</code> command fails as there are no undo commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-wrong-command-suggestions"><a class="link" href="#getting-wrong-command-suggestions">Getting wrong command suggestions</a></h4>
+<div class="paragraph">
+<p>There so many commands in the app, so to help you to use the app easier, it will tell you what you have typed wrongly automatically,
+by giving a list of closest approximations of word through the message box after pressing <code>enter</code>.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The input is not case sensitive, hence it would increase the chance of getting a closer approximation of the correct command!</p>
+</li>
+<li>
+<p>This feature tolerates a maximum of two wrong alphabets.</p>
+</li>
+<li>
+<p>This feature allows user to type in a command which has the same alphabets with one of the correct command word but in different order. The system can give suggestion even if the user type in the reverse command word.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want to type <code>clear</code> but typed <code>clarr</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>clear</code> instead.</p>
+</li>
+<li>
+<p>If you want to type <code>exit</code> but typed <code>ecot</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>exit</code> and <code>edit</code> instead.</p>
+</li>
+<li>
+<p>If you want to type <code>history</code> but typed <code>hsitryo</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>history</code> instead.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help : <code>help</code></a></h4>
+<div class="paragraph">
+<p>In case you are clueless, you can always use this command get help on all the commands available and their functions.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>If you are done using the app, you just use this command to exit and close the app.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -154,11 +344,8 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="project-tasketch-2"><a class="link" href="#project-tasketch-2">PROJECT: Tasketch</a></h2>
 <div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 12:01:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:05:44 UTC</div></div></div></body></html>
