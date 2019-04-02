@@ -32,31 +32,9 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 </ul>
 </li>
-<li><a href="#product-scope">Appendix A: Product Scope</a>
-<ul class="sectlevel2">
-<li><a href="#target-user-profile">A.1. Target user profile</a></li>
-</ul>
-</li>
-<li><a href="#user-stories">Appendix B: User Stories</a>
-<ul class="sectlevel2">
-<li><a href="#add-task-to-a-specific-date">B.1. Add task to a specific date</a></li>
-<li><a href="#priority-2-function">B.2. Priority 2 function</a></li>
-<li><a href="#priority-3-function">B.3. Priority 3 function</a></li>
-</ul>
-</li>
-<li><a href="#user-cases">Appendix C: User cases</a>
-<ul class="sectlevel2">
-<li><a href="#help">C.1. Help</a></li>
-<li><a href="#add-a-task">C.2. Add a task</a></li>
-<li><a href="#editing-a-task">C.3. Editing a task</a></li>
-<li><a href="#find-a-task">C.4. Find a task</a></li>
-<li><a href="#delete-a-task-2">C.5. Delete a task</a></li>
-<li><a href="#clear-tasks-by-time-period">C.6. Clear tasks by time period</a></li>
-<li><a href="#list-tasks-by-time-period">C.7. List tasks by time period</a></li>
-<li><a href="#reminder-feature">C.8. Reminder feature</a></li>
-<li><a href="#exit">C.9. Exit</a></li>
-</ul>
-</li>
+<li><a href="#product-scope">Appendix A: Product Scope</a></li>
+<li><a href="#user-stories">Appendix B: User Stories</a></li>
+<li><a href="#user-cases">Appendix C: User cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non-functional requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 </ul>
@@ -713,386 +691,230 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect1">
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="target-user-profile"><a class="link" href="#target-user-profile">A.1. Target user profile</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="paragraph">
+<p><strong>Target user profile</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>has a need to manage a significant number of tasks everyday</p>
+<p>NUS students who need to manage time due to multiple tasks, assignments and datelines</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>Prefers typing over mouse input</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>Is reasonably comfortable using CLI apps</p>
 </li>
-<li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
-</li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Value proposition</strong>:
-Manage tasks faster than a typical mouse/GUI driven apps</p>
-</div>
+Manage all the tasks and assignments by giving each of them a time period.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="add-task-to-a-specific-date"><a class="link" href="#add-task-to-a-specific-date">B.1. Add task to a specific date</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can view what to do for the next few days</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<div class="sect3">
-<h4 id="delete-a-task"><a class="link" href="#delete-a-task">B.1.1. Delete a task</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can delete task when he no longer want to do it</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-a-task"><a class="link" href="#edit-a-task">B.1.2. Edit a task</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can change the information of the task</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-the-next-coming-tasks"><a class="link" href="#view-the-next-coming-tasks">B.1.3. View the next coming tasks</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User will know what to prepare next</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-tasks"><a class="link" href="#clear-tasks">B.1.4. Clear tasks</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can clear all the tasks of a day or a month</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="exit-the-programme"><a class="link" href="#exit-the-programme">B.1.5. Exit the programme</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: Users can exit the programme when he doesn’t want to see the listed tasks</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-one-task-by-part-of-the-description"><a class="link" href="#find-one-task-by-part-of-the-description">B.1.6. Find one task by part of the description</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: Users can check the full information of the task when they forget the task description</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="priority-2-function"><a class="link" href="#priority-2-function">B.2. Priority 2 function</a></h3>
-<div class="sect3">
-<h4 id="highlight-today-s-date"><a class="link" href="#highlight-today-s-date">B.2.1. Highlight today’s date</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can know today’s date</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-priority-of-the-task"><a class="link" href="#add-priority-of-the-task">B.2.2. Add priority of the task</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can set the importance of an task</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-priority-of-all-events"><a class="link" href="#view-priority-of-all-events">B.2.3. View priority of all events</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can see all the events based on the priority</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-tasks-of-certain-priority-of-this-week"><a class="link" href="#list-tasks-of-certain-priority-of-this-week">B.2.4. List tasks of certain priority of this week</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can know what must be done in this week</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="classify-a-task"><a class="link" href="#classify-a-task">B.2.5. Classify a task</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can separate different tasks</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="search-tasks-by-classification"><a class="link" href="#search-tasks-by-classification">B.2.6. Search tasks by classification</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can see different tasks based on the classification</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="writing-reflection"><a class="link" href="#writing-reflection">B.2.7. Writing reflection</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can write their daily reflection</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="alarm"><a class="link" href="#alarm">B.2.8. Alarm</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: It can remind users of the coming events</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="priority-3-function"><a class="link" href="#priority-3-function">B.3. Priority 3 function</a></h3>
-<div class="sect3">
-<h4 id="change-the-color-for-different-version-of-calendar"><a class="link" href="#change-the-color-for-different-version-of-calendar">B.3.1. Change the color for different version of calendar</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can choose different version of different color of calendar</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="record-total-time-spent-on-each-classified-task-type"><a class="link" href="#record-total-time-spent-on-each-classified-task-type">B.3.2. Record total time spent on each classified task type</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User can see how much time they spend on a specific task type each day.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="analyze-the-total-time-spent"><a class="link" href="#analyze-the-total-time-spent">B.3.3. Analyze the total time spent</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: it can analyze users’ spent time and maybe give some suggestions</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="play-music-for-user"><a class="link" href="#play-music-for-user">B.3.4. Play music for user</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: it can act as an entertainment to user when he is working on his task</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-out-weather-condition-for-current-location"><a class="link" href="#find-out-weather-condition-for-current-location">B.3.5. Find out weather condition for current location</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Role:User</p>
-</li>
-<li>
-<p>Benefit: User able to plan the next action to do, like to bring umbrella or not</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 14.6341%;">
+<col style="width: 16.2601%;">
+<col style="width: 28.4552%;">
+<col style="width: 40.6506%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage multiple tasks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get rid of a task that no longer want to do</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change the all the information of the task</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove all the completed tasks of a day or a month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check the full information of the task when forgetting the task description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know what task is on that day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">record total time spent on each classified task type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how much time they spend on a specific
+task type each day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show summary of time planned on a day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan future tasks more effectively</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo/redo a command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove/redo a command that I entered/removed by mistake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know today&#8217;s date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sure of today&#8217;s date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add priority of the task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set the importance of an task</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view priority of all events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all the events based on the priority</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list tasks of certain priority of this week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know what must be done in this week</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">classify a task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">separate different tasks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search tasks by classification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see different tasks based on the classification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write reflection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write their daily reflection</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have alarm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remind myself of the coming events</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change the color for the calendar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">choose different version of different color of calendar</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">play music</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be entertained when working on the desk</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find out weather condition for current location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan the next action, like to bring umbrella or not</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="user-cases"><a class="link" href="#user-cases">Appendix C: User cases</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="help"><a class="link" href="#help">C.1. Help</a></h3>
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is the <code>ProjectManager</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+</div>
+<h3 id="add-a-task" class="discrete">Add a task</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>MSS</p>
-<div class="olist arabic">
-<ol class="arabic">
+<p>User requests to create a task</p>
+<div class="ulist">
+<ul>
 <li>
-<p>User requests help</p>
+<p>1a. User submits the following information. Task Name || Start date || Start time || End date || End time ||
+Description || Task category || Tag</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>TaskBook shows a list of commands with the examples of their usage</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
+<p>TaskBook add that task into the task list</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="add-a-task"><a class="link" href="#add-a-task">C.2. Add a task</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>MSS</p>
-<div class="olist arabic">
-<ol class="arabic">
+<p>1a1 Missing information</p>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>User request add [task] -s [startDateTime] -e [endDateTime] -t [topic] -d [description]</p>
-</li>
-<li>
-<p>TaskBook add that task into the current day’s task list</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
+<p>1a1a TaskBook displays error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 1</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </li>
-<li>
-<p>Extension</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User request add [task] [date]</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>TaskBook add that task into the specific date’s task list</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends</pre>
+</ul>
 </div>
+<h3 id="editing-a-task" class="discrete">Editing a task</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-task"><a class="link" href="#editing-a-task">C.3. Editing a task</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1108,16 +930,10 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<h3 id="find-a-task" class="discrete">Find a task</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="find-a-task"><a class="link" href="#find-a-task">C.4. Find a task</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1133,16 +949,10 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<h3 id="delete-a-task" class="discrete">Delete a task</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="delete-a-task-2"><a class="link" href="#delete-a-task-2">C.5. Delete a task</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1161,16 +971,10 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<h3 id="clear-tasks-by-time-period" class="discrete">Clear tasks by time period</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="clear-tasks-by-time-period"><a class="link" href="#clear-tasks-by-time-period">C.6. Clear tasks by time period</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1178,53 +982,37 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 <li>
 <p>TaskBook removes all the tasks in Tasketch.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
-</li>
-<li>
-<p>Extension</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+<div class="paragraph">
+<p>Extension
+. User request clear [Date]
+. TaskBook removes the tasks which start from that day.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>User request clear [Date]</p>
-</li>
-<li>
-<p>TaskBook removes the tasks which start from that day.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
-</li>
 <li>
 <p>User request clear [Month]</p>
 </li>
 <li>
 <p>TaskBook removes the tasks which start from that month.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
+<h3 id="list-tasks-by-time-period" class="discrete">List tasks by time period</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-<div class="sect2">
-<h3 id="list-tasks-by-time-period"><a class="link" href="#list-tasks-by-time-period">C.7. List tasks by time period</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1232,76 +1020,58 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 <li>
 <p>TaskBook shows a list of tasks of the current day by default.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
-</li>
-<li>
-<p>Extension</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p>Extension
+. User request list all
+.. TaskBook shows a list of all the tasks.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>User request list all</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>TaskBook shows a list of all the tasks.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
 <li>
 <p>User request list [Date]</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>TaskBook shows a list of tasks of that specific date.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>User request list [Month]</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>TaskBook shows a list of tasks of that month</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
+<h3 id="reminder-feature" class="discrete">Reminder feature</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-<div class="sect2">
-<h3 id="reminder-feature"><a class="link" href="#reminder-feature">C.8. Reminder feature</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1316,33 +1086,32 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 </ol>
 </div>
-</li>
-<li>
-<p>Extension</p>
+<div class="paragraph">
+<p>Extension
+. User request for a reminder of certain category of tasks.
+.. TaskBook shows a list of tasks with the specified category which have nearest start time or deadline.</p>
+</div>
+<h3 id="help" class="discrete">Help</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User request for a reminder of certain category of tasks.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>User requests help</p>
+</li>
 <li>
-<p>TaskBook shows a list of tasks with the specified category which have nearest start time or deadline.</p>
+<p>TaskBook shows a list of commands with the examples of their usage</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
-</li>
-</ol>
+<h3 id="exit" class="discrete">Exit</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exit"><a class="link" href="#exit">C.9. Exit</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>MSS</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1350,17 +1119,11 @@ Manage tasks faster than a typical mouse/GUI driven apps</p>
 </li>
 <li>
 <p>TaskBook saves all the changes and exits.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
 </div>
-</li>
-</ol>
-</div>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </div>
 </div>
@@ -1397,4 +1160,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:14:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:59:51 UTC</div></div></div></body></html>
