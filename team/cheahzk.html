@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Cheah Zhi Kang - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Cheah Zhi Kang - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-tasketch"><a class="link" href="#project-tasketch">PROJECT: Tasketch</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Tasketch is an application that helps you to manage your everyday time by giving you an overview of all the time planned
+for all the tasks in a daily manner. It also helps you to be aware of all the tasks dateline too.</p>
 </div>
 </div>
 </div>
@@ -20,29 +21,30 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>Daily Time Planner</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: Keeping track of all the time planned for all the daily tasks added and show the user based on each day with
+time planned for different categories.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature allowing the user to plan the daily time by planning tasks of certain categories after seeing
+how much time has been planned for that category on that day.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement greatly dependent on the tasks information. Getting the right data from the tasks added
+is important.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added restriction and checks on the <code>add</code> command to ensure no invalid data being entered into the
+Tasketch, as well as ensuring the Daily Time Planner works correctly after the command being parsed.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S2-T09-2/main/commit/c32d4c5b5a218ba50dfeb315b3757dc19ad99a94">Daily Time Planner code</a>][<a href="https://github.com/CS2113-AY1819S2-T09-2/main/commit/fd905013aa33b2effad033e0d4609a3007bcf431">Date and Time Check code</a>][<a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/36">Morphing to Tasketch code</a>][<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=cheah%20zhi%20kang&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=Zeyang-Li&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master&amp;repoSort=true">RepoSense</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,7 +55,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.2</code> on GitHub</p>
+</li>
+<li>
+<p>Create milestones for Tasketch version on Github</p>
+</li>
+<li>
+<p>Setup issue trackers for Tasketch on Github</p>
 </li>
 </ul>
 </div>
@@ -63,10 +71,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Updated <code>add</code> command for Daily Time Planner (Pull requests <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/90">#90</a>, <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/98">#98</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Added UI for Daily Time Planner commands (Pull requests <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/116">#116</a>)</p>
 </li>
 </ul>
 </div>
@@ -76,7 +84,8 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks added more content to existing contents of the User Guide, Developer Guide and ReadMe:: <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/110">#110</a>,
+<a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/111">#111</a></p>
 </li>
 </ul>
 </div>
@@ -86,29 +95,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/38">#38</a></p>
 </li>
 </ul>
 </div>
@@ -117,9 +104,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -139,6 +123,134 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="daily-time-planner"><a class="link" href="#daily-time-planner">Daily Time Planner</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature will help you to monitor the time planned for different tasks in a day. By looking at the time spent on
+different tasks, it aims to help you to plan your time better so that you will not spend most time on specific type
+of a task.</p>
+</div>
+<div class="sect2">
+<h3 id="adding-a-task-code-add-code-code-a-code"><a class="link" href="#adding-a-task-code-add-code-code-a-code">Adding a task: <code>add</code>/<code>a</code></a></h3>
+<div class="paragraph">
+<p>To get started, you will need to add a task into Tasketch. The format is as below.<br></p>
+</div>
+<div class="paragraph">
+<p>When you are adding a task, the app will ensure that there will be no duplicate names added. This is to ensure that
+there is no confusion in the task names.</p>
+</div>
+<div class="paragraph">
+<p>Adding a task with the same start date and end date means that it is a daily task, will be monitored by the Daily Time
+Planner. Different dates means it is a long period task, thus will not be considered as daily task but can still be added.</p>
+</div>
+<div class="paragraph">
+<p>The app will not able to verify the correctness for the number of days in different months, so you have to ensure that
+the date exists in that particular month. However, the app will able to differentiate the maximum number of days and months.
+This means that you will never be able to enter more than 31 days and more than 12 months in the start date and end date.<br>
+Should you enter different start date and end date, the app will ensure that your end date is after the start date.</p>
+</div>
+<div class="paragraph">
+<p>As for start time and end time, the app is smart enough to inform you when you have entered invalid time, such as 24.00,
+as this is incorrect. You will not able to enter hours beyond 23 and minutes beyond 59. The app will also ensure
+that the end time is after start time too. This to ensure the time spent/duration calculation (end time - start time)
+will result correct values.</p>
+</div>
+<div class="paragraph">
+<p>You will also need to specify the type of category of the task that you are adding for the Daily Time Planner to monitor
+your time effectively.</p>
+</div>
+<div class="paragraph">
+<p>If any of the above is violated, the app will alert you that it is an invalid command with the corrected format shown to
+you.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There are only 5 valid categories. (The details about it can be found in <a href="#category">[category]</a>.)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A task can have any number of tags (including 0)
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION c/CATEGORIES [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control</code><br>
+Adds a task named CS2113 task in the app. It starts at 12:00 on March 13rd, 2019 and it ends at 14:00 on the same day. The description for this task is to talk about version control.</p>
+</li>
+<li>
+<p><code>add n/MA1101R tutorial sd/14-03-19 st/12.00 ed/14-03-19 et/14.00 d/Tutorial 8 c/a</code><br>
+Adds a task named MA1101R tutorial. It starts at 12:00 on March 14th, 2019 and ends at 14:00 on the same day. Its description is tutorial and it category is academic.</p>
+</li>
+<li>
+<p><code>add n/CS3235 lecture sd/13-03-19 st/08.00 ed/13-03-19 et/10.00 d/Talk about network security t/important</code><br>
+Adds a task named CS3235 lecture. It starts at 8:00 in March 3rd, 2019 and ends at 10:00. Its description is to talk about network security. The tag for it is 'important'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+You should see the task added into the task list on the left of the app.<br>
+The time duration on that task will be calculated in the back and the time should be reflected in the day list on the right
+of the app.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="showing-time-planned-for-all-task-categories-code-showtime-code"><a class="link" href="#showing-time-planned-for-all-task-categories-code-showtime-code">Showing time planned for all task categories : <code>showTime</code></a></h3>
+<div class="paragraph">
+<p>To help you to plan and make full use of your daily time better, simply use this command to see all the time planned on
+all 5 categories for every day.</p>
+</div>
+<div class="sect3">
+<h4 id="showing-all-the-days"><a class="link" href="#showing-all-the-days">Showing all the days</a></h4>
+<div class="paragraph">
+<p>If you want to the time planned for everyday, just use this command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>showTime</code></p>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+You should see a list of days with all the category times on the right side of the app.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-a-particular-day"><a class="link" href="#showing-a-particular-day">Showing a particular day</a></h4>
+<div class="paragraph">
+<p>If you want to see only one specific day, simply add the date that you wish to see behind the command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>showTime DATE</code></p>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+You should see a day of your choice with all the category times on the right side of the app, if the date exists.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
@@ -151,14 +263,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p><em>{Adding}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 06:01:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 08:41:17 UTC</div></div></div></body></html>
