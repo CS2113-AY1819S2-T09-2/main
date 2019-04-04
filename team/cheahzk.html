@@ -25,16 +25,16 @@ for all the tasks in a daily manner. It also helps you to be aware of all the ta
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Keeping track of all the time planned for all the daily tasks added and show the user based on each day with
-time planned for different categories.</p>
+<p>What it does: Keeping track of all the time planned for all the daily tasks added and the <code>showtime</code> command allows
+the user to see the time planned for different categories for all the days or for a specific day.</p>
 </li>
 <li>
 <p>Justification: This feature allowing the user to plan the daily time by planning tasks of certain categories after seeing
 how much time has been planned for that category on that day.</p>
 </li>
 <li>
-<p>Highlights: This enhancement greatly dependent on the tasks information. Getting the right data from the tasks added
-is important.</p>
+<p>Highlights: This enhancement works with existing <code>delete</code>, <code>edit</code> and <code>clear</code> command. This feature greatly depends
+on the tasks information. Getting the right data from the tasks added is important.</p>
 </li>
 </ul>
 </div>
@@ -58,7 +58,7 @@ Tasketch, as well as ensuring the Daily Time Planner works correctly after the c
 <p>Managed releases <code>v1.2</code> on GitHub</p>
 </li>
 <li>
-<p>Create milestones for Tasketch version on Github</p>
+<p>Created milestones for Tasketch version on Github</p>
 </li>
 <li>
 <p>Setup issue trackers for Tasketch on Github</p>
@@ -84,8 +84,8 @@ Tasketch, as well as ensuring the Daily Time Planner works correctly after the c
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks added more content to existing contents of the User Guide, Developer Guide and ReadMe:: <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/110">#110</a>,
-<a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/111">#111</a></p>
+<p>Did cosmetic tweaks and added more content to existing contents of the User Guide, Developer Guide and ReadMe ( <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/110">#110</a>,
+<a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/111">#111</a>)</p>
 </li>
 </ul>
 </div>
@@ -157,22 +157,11 @@ will result correct values.</p>
 </div>
 <div class="paragraph">
 <p>You will also need to specify the type of category of the task that you are adding for the Daily Time Planner to monitor
-your time effectively.</p>
+your time effectively. There are only 5 valid categories. (The details about it can be found in <a href="#category">[category]</a>.)</p>
 </div>
 <div class="paragraph">
 <p>If any of the above is violated, the app will alert you that it is an invalid command with the corrected format shown to
 you.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>There are only 5 valid categories. (The details about it can be found in <a href="#category">[category]</a>.)</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -203,20 +192,20 @@ Adds a task named CS2113 task in the app. It starts at 12:00 on March 13rd, 2019
 Adds a task named MA1101R tutorial. It starts at 12:00 on March 14th, 2019 and ends at 14:00 on the same day. Its description is tutorial and it category is academic.</p>
 </li>
 <li>
-<p><code>add n/CS3235 lecture sd/13-03-19 st/08.00 ed/13-03-19 et/10.00 d/Talk about network security t/important</code><br>
-Adds a task named CS3235 lecture. It starts at 8:00 in March 3rd, 2019 and ends at 10:00. Its description is to talk about network security. The tag for it is 'important'.</p>
+<p><code>add n/CS3235 lecture sd/13-03-19 st/08.00 ed/14-03-19 et/10.00 d/Talk about network security t/important</code><br>
+Adds a task named CS3235 lecture. It starts at 8:00 on March 13rd, 2019 and ends at 10:00 on March 14th, 2019. Its description is to talk about network security. The tag for it is 'important'.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Result:<br>
 You should see the task added into the task list on the left of the app.<br>
-The time duration on that task will be calculated in the back and the time should be reflected in the day list on the right
+The time duration on that task will be calculated at the back and the time should be reflected in the day list on the right
 of the app.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="showing-time-planned-for-all-task-categories-code-showtime-code"><a class="link" href="#showing-time-planned-for-all-task-categories-code-showtime-code">Showing time planned for all task categories : <code>showTime</code></a></h3>
+<h3 id="showing-time-planned-for-all-task-categories-code-showtime-code"><a class="link" href="#showing-time-planned-for-all-task-categories-code-showtime-code">Showing time planned for all task categories : <code>showtime</code></a></h3>
 <div class="paragraph">
 <p>To help you to plan and make full use of your daily time better, simply use this command to see all the time planned on
 all 5 categories for every day.</p>
@@ -227,7 +216,7 @@ all 5 categories for every day.</p>
 <p>If you want to the time planned for everyday, just use this command.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>showTime</code></p>
+<p>Format: <code>showtime</code></p>
 </div>
 <div class="paragraph">
 <p>Result:<br>
@@ -240,7 +229,7 @@ You should see a list of days with all the category times on the right side of t
 <p>If you want to see only one specific day, simply add the date that you wish to see behind the command.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>showTime DATE</code></p>
+<p>Format: <code>showtime DATE</code></p>
 </div>
 <div class="paragraph">
 <p>Result:<br>
@@ -267,4 +256,4 @@ You should see a day of your choice with all the category times on the right sid
 <p><em>{Adding}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 08:01:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 09:59:26 UTC</div></div></div></body></html>
