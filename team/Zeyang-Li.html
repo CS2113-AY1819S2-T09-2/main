@@ -60,7 +60,7 @@ This enhancement affects existing commands and commands to be added in future. I
 </li>
 <li>
 <p>Credits:<br>
-<em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+Codes and ideas related are inspired by <a href="https://github.com/CS2113-AY1819S1-W12-1/main">CS2113-AY1819S1-W12-1</a></p>
 </li>
 </ul>
 </div>
@@ -213,11 +213,12 @@ The correspond time duration for those tasks will be deducted from the Daily Tim
 <p>This feature allows you to import an existing json file which contains your other tasks in Tasketch. Also, it supports
 the product to export what you have in the Tasketch to a json file if you want.</p>
 </div>
-<div class="sect3">
-<h4 id="export-tasks-displayed-code-export-code"><a class="link" href="#export-tasks-displayed-code-export-code">Export tasks displayed: <code>export</code></a></h4>
+</div>
+<div class="sect2">
+<h3 id="export-tasks-displayed-code-export-code"><a class="link" href="#export-tasks-displayed-code-export-code">Export tasks displayed: <code>export</code></a></h3>
 <div class="paragraph">
 <p>You can save all tasks or filtered tasks into a json file. It can be used with <code>list</code> or <code>find</code>.<br>
-Format: <code>export FILENAME.json</code></p>
+Format: <code>export FILENAME.json [CATEGORY]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -227,16 +228,20 @@ Format: <code>export FILENAME.json</code></p>
 <li>
 <p><code>find Revise</code><br>
 <code>export revise.json</code><br>
- Exports all tasks which are named with keyword "Revise".</p>
+ Exports all tasks which are named with keyword "Revise" in revise.json.</p>
+</li>
+<li>
+<p><code>export academic.json a</code><br>
+Exports all academic tasks into academic.json.</p>
 </li>
 <li>
 <p><code>list 13-03-19</code><br>
 <code>export 13-03-19.json</code><br>
- Exports all tasks which starts on March 13, 2019.</p>
+ Exports all tasks which starts on March 13, 2019 in 13-03-19.json.</p>
 </li>
 <li>
-<p><code>export</code><br>
-Exports all tasks which are shown on the left list.</p>
+<p><code>export Tasketch.json</code><br>
+Exports all tasks which are shown on the left list in Tasketch.json.</p>
 </li>
 </ul>
 </div>
@@ -255,12 +260,14 @@ Exports all tasks which are shown on the left list.</p>
 <li>
 <p>This command overwrites any files with the same name at <code>&lt;DIRECTORY OF YOUR JAR FILE&gt;/data/</code></p>
 </li>
+<li>
+<p>If you export tasks based on categories, the left list will also change to show all tasks which are exported.</p>
+</li>
 </ol>
 </div>
 </td>
 </tr>
 </table>
-</div>
 </div>
 <div class="sect3">
 <h4 id="import-tasks-code-import-code"><a class="link" href="#import-tasks-code-import-code">Import tasks: <code>import</code></a></h4>
@@ -417,6 +424,197 @@ regret your previous attempts when playing with Tasketch.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">Suggestion feature</a></h3>
+<div class="paragraph">
+<p>The suggestions feature gives users helpful suggestions on what command to type, and corrections for commands when incorrect commands are being entered.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>There are two kind of suggestions supported by this feature.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, when a user has typed part of the command word and he forgets what is the whole correct command word, and then presses TAB. The system will suggest commands based on the current prefix string. If this command have parameters and the user types TAB again, the system will also suggest all the parameters about this command.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, when a user completes entering a command (after pressing ENTER key), if the command typed is invalid, the system will suggest a similar command based on the edit distance (which will be explained later).</p>
+</div>
+<div class="paragraph">
+<p><strong>Wrong Command Suggestion</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage of how the WrongCommandSuggestion behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user would type in the command string wrongly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The command would be parsed into the TaskBookParser class. Since no commands match the word exactly, it would fall into the default case.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The default case would extract out only the command portion of the user input, and input it into the WrongCommandSuggestion class.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: WrongCommandSuggestion would first check the alphabets occurrence in the command word typed by users, if there is any correct command word has the same alphabets occurrence, WrongCommandSuggestion will return this command word immediately.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: Otherwise, WrongCommandSuggestion then would then instantiate the StringSimilarity class to find the nearest match of a word.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: editDistance in StringSimliarity class would be called to find out the edit distance between two words. These two words would be the wrong command the user has input, and the list of available commands in the whole application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: WrongCommandSuggestion would then compare if the edit distance of the current command is shorter than the current shortest edit distance command (which is initialised to 3 edits). If it is shorter, it would then suggest the current command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: WrongCommandSuggestion would then return the suggestion in a string, which would then be inputted into the CommandException, to be thrown to the LogicManager class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="for-the-wrongcommandsuggestion-implementation"><a class="link" href="#for-the-wrongcommandsuggestion-implementation">For the WrongCommandSuggestion implementation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Compare the input command and the actual command character by character and see which command has the most matches.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Not as accurate or reliable in terms of giving a correct match of command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a string matching algorithm to implement the matching and difference calculation between the command and the user input.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Accurate prediction or suggestions from actual commands.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement, and might require more processing overhead.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3(current choice):</strong> Combination of the two.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More accurate prediction.</p>
+</li>
+<li>
+<p>Cons: More difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-export-feature"><a class="link" href="#import-export-feature">Import/Export feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="import"><a class="link" href="#import">Import</a></h5>
+<div class="paragraph">
+<p>This operation is exposed in the Model interface as Model#importTaskBook().</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user calls the import command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The LogicManager calls parseCommand with the user input.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The TaskBookParser is called and it returns a ImportCommand object to LogicManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: The LogicManager calls execute() on the ImportCommand object</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling importTasksFromTaskBook() of the Model interface.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: The Model interface creates a new Import object and then pass the filePath to the ImportManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: The Import object will call JsonFileStorage class to loadDataFromSaveFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: The ImportManager class will call JsonFileStorage class to saveDataToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to fromJsonString.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 10</strong>: The ModelManager will get a ReadOnlyTaskBook object and then it will addTasksToTaskBook.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 11</strong>: If there is any new task added, the ModelManager will updateFilteredTaskList.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="export"><a class="link" href="#export">Export</a></h5>
+<div class="paragraph">
+<p>This operation is exposed in the Model interface as Model#exportTaskBook().</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user calls the export command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The LogicManager calls parseCommand with the user input.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The TaskBookParser is called and it returns a ExportCommand object to LogicManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: The LogicManager calls execute() on the ExportCommand object</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling exportFilteredTaskBook() of the Model interface.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: The Model interface creates a new Export object and then pass the filteredTaskList and the filePath to the ExportManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: The Export object calls saveFilteredTasks function.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: The ExportManager class will call JsonFileStorage class to saveDataToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to saveJsonFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 10</strong>: The JsonUtil class will call FileUtil class to writeToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 11</strong>: The FileUtil class will finally call File class to write.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -424,4 +622,4 @@ regret your previous attempts when playing with Tasketch.</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 10:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 13:06:36 UTC</div></div></div></body></html>

@@ -40,6 +40,8 @@
 <li><a href="#effective-visualization-feature">4.4. Effective Visualization feature</a></li>
 <li><a href="#timeplanner-feature">4.5. Timeplanner feature</a></li>
 <li><a href="#import-export-feature">4.6. Import/Export feature</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -540,7 +542,7 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedTaskBook</code> will be initialized with the initial task book state, and the <code>currentStatePointer</code> pointing to that single task book state.</p>
+<p><strong>Step 1</strong>: The user launches the application for the first time. The <code>VersionedTaskBook</code> will be initialized with the initial task book state, and the <code>currentStatePointer</code> pointing to that single task book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -548,7 +550,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the task book. The <code>delete</code> command calls <code>Model#commitTaskBook()</code>, causing the modified state of the task book after the <code>delete 5</code> command executes to be saved in the <code>taskBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted task book state.</p>
+<p><strong>Step 2</strong>: The user executes <code>delete 5</code> command to delete the 5th person in the task book. The <code>delete</code> command calls <code>Model#commitTaskBook()</code>, causing the modified state of the task book after the <code>delete 5</code> command executes to be saved in the <code>taskBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted task book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -556,7 +558,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/Do CS2113 &#8230;&#8203;</code> to add a new task. The <code>add</code> command also calls <code>Model#commitTaskBook()</code>, causing another modified task book state to be saved into the <code>taskBookStateList</code>.</p>
+<p><strong>Step 3</strong>: The user executes <code>add n/Do CS2113 &#8230;&#8203;</code> to add a new task. The <code>add</code> command also calls <code>Model#commitTaskBook()</code>, causing another modified task book state to be saved into the <code>taskBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -576,7 +578,7 @@ If a command fails its execution, it will not call <code>Model#commitTaskBook()<
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the task was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoTaskBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p><strong>Step 4</strong>: The user now decides that adding the task was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoTaskBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -619,7 +621,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p><strong>Step 5</strong>: The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -627,7 +629,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p><strong>Step 6</strong>: The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -715,10 +717,105 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="sect2">
 <h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">4.2. Suggestion feature</a></h3>
+<div class="paragraph">
+<p>The suggestions feature gives users helpful suggestions on what command to type, and corrections for commands when incorrect commands are being entered.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The suggestion mechanism is facilitated by 'Suggestion'.</p>
+<p>There are two kind of suggestions supported by this feature.</p>
+</div>
+<div class="paragraph">
+<p>Firstly, when a user has typed part of the command word and he forgets what is the whole correct command word, and then presses TAB. The system will suggest commands based on the current prefix string. If this command have parameters and the user types TAB again, the system will also suggest all the parameters about this command.</p>
+</div>
+<div class="paragraph">
+<p>Secondly, when a user completes entering a command (after pressing ENTER key), if the command typed is invalid, the system will suggest a similar command based on the edit distance (which will be explained later).</p>
+</div>
+<div class="paragraph">
+<p><strong>Input Command Suggestion</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Wrong Command Suggestion</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage of how the WrongCommandSuggestion behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user would type in the command string wrongly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The command would be parsed into the TaskBookParser class. Since no commands match the word exactly, it would fall into the default case.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The default case would extract out only the command portion of the user input, and input it into the WrongCommandSuggestion class.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: WrongCommandSuggestion would first check the alphabets occurrence in the command word typed by users, if there is any correct command word has the same alphabets occurrence, WrongCommandSuggestion will return this command word immediately.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: Otherwise, WrongCommandSuggestion then would then instantiate the StringSimilarity class to find the nearest match of a word.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: editDistance in StringSimliarity class would be called to find out the edit distance between two words. These two words would be the wrong command the user has input, and the list of available commands in the whole application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: WrongCommandSuggestion would then compare if the edit distance of the current command is shorter than the current shortest edit distance command (which is initialised to 3 edits). If it is shorter, it would then suggest the current command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: WrongCommandSuggestion would then return the suggestion in a string, which would then be inputted into the CommandException, to be thrown to the LogicManager class.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="for-the-wrongcommandsuggestion-implementation"><a class="link" href="#for-the-wrongcommandsuggestion-implementation">For the WrongCommandSuggestion implementation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Compare the input command and the actual command character by character and see which command has the most matches.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Not as accurate or reliable in terms of giving a correct match of command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a string matching algorithm to implement the matching and difference calculation between the command and the user input.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Accurate prediction or suggestions from actual commands.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement, and might require more processing overhead.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3(current choice):</strong> Combination of the two.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More accurate prediction.</p>
+</li>
+<li>
+<p>Cons: More difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="for-the-inputcommandsuggestion-implementation"><a class="link" href="#for-the-inputcommandsuggestion-implementation">For the InputCommandSuggestion implementation</a></h5>
+
 </div>
 </div>
 </div>
@@ -803,7 +900,138 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h3 id="import-export-feature"><a class="link" href="#import-export-feature">4.6. Import/Export feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="import"><a class="link" href="#import">Import</a></h5>
+<div class="paragraph">
+<p>This operation is exposed in the Model interface as Model#importTaskBook().</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user calls the import command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The LogicManager calls parseCommand with the user input.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The TaskBookParser is called and it returns a ImportCommand object to LogicManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: The LogicManager calls execute() on the ImportCommand object</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling importTasksFromTaskBook() of the Model interface.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: The Model interface creates a new Import object and then pass the filePath to the ImportManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: The Import object will call JsonFileStorage class to loadDataFromSaveFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: The ImportManager class will call JsonFileStorage class to saveDataToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to fromJsonString.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 10</strong>: The ModelManager will get a ReadOnlyTaskBook object and then it will addTasksToTaskBook.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 11</strong>: If there is any new task added, the ModelManager will updateFilteredTaskList.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="export"><a class="link" href="#export">Export</a></h5>
+<div class="paragraph">
+<p>This operation is exposed in the Model interface as Model#exportTaskBook().</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user calls the export command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The LogicManager calls parseCommand with the user input.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The TaskBookParser is called and it returns a ExportCommand object to LogicManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: The LogicManager calls execute() on the ExportCommand object</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling exportFilteredTaskBook() of the Model interface.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>: The Model interface creates a new Export object and then pass the filteredTaskList and the filePath to the ExportManager.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>: The Export object calls saveFilteredTasks function.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>: The ExportManager class will call JsonFileStorage class to saveDataToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to saveJsonFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 10</strong>: The JsonUtil class will call FileUtil class to writeToFile.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 11</strong>: The FileUtil class will finally call File class to write.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
 
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -1292,4 +1520,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 10:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 13:06:36 UTC</div></div></div></body></html>

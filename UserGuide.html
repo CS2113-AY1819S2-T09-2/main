@@ -786,7 +786,7 @@ the product to export what you have in the Tasketch to a json file if you want.<
 <h3 id="export-tasks-displayed-code-export-code"><a class="link" href="#export-tasks-displayed-code-export-code">9.1. Export tasks displayed: <code>export</code></a></h3>
 <div class="paragraph">
 <p>You can save all tasks or filtered tasks into a json file. It can be used with <code>list</code> or <code>find</code>.<br>
-Format: <code>export FILENAME.json</code></p>
+Format: <code>export FILENAME.json [CATEGORY]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -796,16 +796,20 @@ Format: <code>export FILENAME.json</code></p>
 <li>
 <p><code>find Revise</code><br>
 <code>export revise.json</code><br>
- Exports all tasks which are named with keyword "Revise".</p>
+ Exports all tasks which are named with keyword "Revise" in revise.json.</p>
+</li>
+<li>
+<p><code>export academic.json a</code><br>
+Exports all academic tasks into academic.json.</p>
 </li>
 <li>
 <p><code>list 13-03-19</code><br>
 <code>export 13-03-19.json</code><br>
- Exports all tasks which starts on March 13, 2019.</p>
+ Exports all tasks which starts on March 13, 2019 in 13-03-19.json.</p>
 </li>
 <li>
-<p><code>export</code><br>
-Exports all tasks which are shown on the left list.</p>
+<p><code>export Tasketch.json</code><br>
+Exports all tasks which are shown on the left list in Tasketch.json.</p>
 </li>
 </ul>
 </div>
@@ -823,6 +827,9 @@ Exports all tasks which are shown on the left list.</p>
 </li>
 <li>
 <p>This command overwrites any files with the same name at <code>&lt;DIRECTORY OF YOUR JAR FILE&gt;/data/</code></p>
+</li>
+<li>
+<p>If you export tasks based on categories, the left list will also change to show all tasks which are exported.</p>
 </li>
 </ol>
 </div>
@@ -1045,4 +1052,4 @@ e.g. <code>showtime 13-02-2019</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 10:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-04 13:06:36 UTC</div></div></div></body></html>
