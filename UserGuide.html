@@ -110,6 +110,9 @@ type either <code>add</code> or <code>a</code>.</p>
 <li>
 <p>The format for times is <code>hh.mm</code> and it is using 24-hour clock. For example: <code>13.00</code> means 1 o&#8217;clock in the afternoon.</p>
 </li>
+<li>
+<p>Tags names should be alphanumeric. For example: DueSoon, CS2113TLecture</p>
+</li>
 </ul>
 </div>
 <div id="category" class="sidebarblock">
@@ -316,11 +319,11 @@ Clears all the tasks starting from the specified date</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>clear 21-02-2019</code><br>
+<p><code>clear 21-02-19</code><br>
 Clears all the tasks which start from February 21st, 2019.</p>
 </li>
 <li>
-<p><code>clear 02-2019</code><br>
+<p><code>clear 02-19</code><br>
 Clears all the tasks which start from February, 2019.</p>
 </li>
 <li>
@@ -518,11 +521,11 @@ Lists all the tasks of that specific date<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list 02-2019</code><br>
+<p><code>list 02-19</code><br>
 Lists all the tasks in February, 2019</p>
 </li>
 <li>
-<p><code>list 20-02-2019</code><br>
+<p><code>list 20-02-19</code><br>
 Lists all the tasks in February 20th, 2019</p>
 </li>
 <li>
@@ -723,12 +726,28 @@ by giving a list of closest approximations of word through the message box after
 <ul>
 <li>
 <p>If you want to type <code>clear</code> but typed <code>clarr</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>clear</code> instead.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/WrongCommandSuggestion_clarr.png" alt="WrongCommandSuggestion clarr" width="790">
+</div>
+</div>
 </li>
 <li>
 <p>If you want to type <code>exit</code> but typed <code>ecot</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>exit</code> and <code>edit</code> instead.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/WrongCommandSuggestion_ecot.png" alt="WrongCommandSuggestion ecot" width="790">
+</div>
+</div>
 </li>
 <li>
-<p>If you want to type <code>history</code> but typed <code>hsitryo</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>history</code> instead.</p>
+<p>If you want to type <code>history</code> but typed <code>hsitryo</code> instead, the system will tell you that it is an unknown command, and would suggest the command <code>history</code> instead.
+Although there are more than 2 alphabets different from the correct command, the system will smartly show the suggestion because <code>hsitryo</code> has the same alphabets with <code>history</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/WrongCommandSuggestion_hsitryo.png" alt="WrongCommandSuggestion hsitryo" width="790">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -1015,7 +1034,7 @@ e.g. <code>add n/CS2113 sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about v
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear [DATE]</code><br>
-e.g. <code>clear 21-02-2019</code></p>
+e.g. <code>clear 21-02-19</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX_NUMBER</code><br>
@@ -1023,7 +1042,7 @@ e.g. <code>delete 1</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX_NUMBER [s/START_TIME] [e/END_TIME] [t/TOPIC] [d/DESCRIPTION]</code><br>
-e.g. <code>edit 1 s/12.00 e/14.00 t/GET1018 tut</code></p>
+e.g. <code>edit 1 s/12.00 e/14.00 t/GET1018tut</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -1031,11 +1050,11 @@ e.g. <code>find CS2113T</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list [DATE]</code><br>
-e.g. <code>list 02-2019</code></p>
+e.g. <code>list 02-19</code></p>
 </li>
 <li>
 <p><strong>Showtime</strong> : <code>showtime [DATE]</code>
-e.g. <code>showtime 13-02-2019</code></p>
+e.g. <code>showtime 13-02-19</code></p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code></p>
@@ -1055,4 +1074,4 @@ e.g. <code>showtime 13-02-2019</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 06:41:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 15:33:32 UTC</div></div></div></body></html>

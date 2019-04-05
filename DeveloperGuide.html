@@ -35,13 +35,14 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#versioned-tasketch-feature">4.1. Versioned Tasketch feature</a></li>
-<li><a href="#suggestion-feature">4.2. Suggestion feature</a></li>
-<li><a href="#reminder-feature">4.3. Reminder feature</a></li>
-<li><a href="#effective-visualization-feature">4.4. Effective Visualization feature</a></li>
-<li><a href="#daily-time-planner-feature">4.5. Daily Time Planner feature</a></li>
-<li><a href="#import-export-feature">4.6. Import/Export feature</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#automatically-complete-input-command-feature">4.2. Automatically complete input command feature</a></li>
+<li><a href="#wrong-command-suggestion-feature">4.3. Wrong Command Suggestion feature</a></li>
+<li><a href="#reminder-feature">4.4. Reminder feature</a></li>
+<li><a href="#effective-visualization-feature">4.5. Effective Visualization feature</a></li>
+<li><a href="#daily-time-planner-feature">4.6. Daily Time Planner feature</a></li>
+<li><a href="#import-export-feature">4.7. Import/Export feature</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -724,26 +725,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">4.2. Suggestion feature</a></h3>
+<h3 id="automatically-complete-input-command-feature"><a class="link" href="#automatically-complete-input-command-feature">4.2. Automatically complete input command feature</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="wrong-command-suggestion-feature"><a class="link" href="#wrong-command-suggestion-feature">4.3. Wrong Command Suggestion feature</a></h3>
 <div class="paragraph">
 <p>The suggestions feature gives users helpful suggestions on what command to type, and corrections for commands when incorrect commands are being entered.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>There are two kind of suggestions supported by this feature.</p>
-</div>
-<div class="paragraph">
-<p>Firstly, when a user has typed part of the command word and he forgets what is the whole correct command word, and then presses TAB. The system will suggest commands based on the current prefix string. If this command have parameters and the user types TAB again, the system will also suggest all the parameters about this command.</p>
-</div>
-<div class="paragraph">
-<p>Secondly, when a user completes entering a command (after pressing ENTER key), if the command typed is invalid, the system will suggest a similar command based on the edit distance (which will be explained later).</p>
-</div>
-<div class="paragraph">
-<p><strong>Input Command Suggestion</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Wrong Command Suggestion</strong></p>
+<p>When a user completes entering a command (after pressing ENTER key), if the command typed is invalid, the system will suggest a similar command based on the edit distance (which will be explained later).</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage of how the WrongCommandSuggestion behaves at each step.</p>
@@ -774,9 +767,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="for-the-wrongcommandsuggestion-implementation"><a class="link" href="#for-the-wrongcommandsuggestion-implementation">For the WrongCommandSuggestion implementation</a></h5>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -821,23 +812,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="for-the-inputcommandsuggestion-implementation"><a class="link" href="#for-the-inputcommandsuggestion-implementation">For the InputCommandSuggestion implementation</a></h5>
-
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="reminder-feature"><a class="link" href="#reminder-feature">4.3. Reminder feature</a></h3>
+<h3 id="reminder-feature"><a class="link" href="#reminder-feature">4.4. Reminder feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="effective-visualization-feature"><a class="link" href="#effective-visualization-feature">4.4. Effective Visualization feature</a></h3>
+<h3 id="effective-visualization-feature"><a class="link" href="#effective-visualization-feature">4.5. Effective Visualization feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>There are mainly two parts in this features, <strong>calendar</strong> and <strong>timeline arrangement</strong></p>
 </div>
@@ -898,13 +884,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="daily-time-planner-feature"><a class="link" href="#daily-time-planner-feature">4.5. Daily Time Planner feature</a></h3>
+<h3 id="daily-time-planner-feature"><a class="link" href="#daily-time-planner-feature">4.6. Daily Time Planner feature</a></h3>
 <div class="paragraph">
 <p>Daily Time Planner uses the information of tasks added, such as start date, end date, start time, end time
 and category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Start date and end date are used to identify whether the task added is a daily task, same dates mean that it is a daily
 task or else it is a long term task which is not meant for daily time planning. Thus, that task will be added to
@@ -1026,9 +1012,9 @@ So, it is better to start in clean state and re-add all the time period of all t
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-feature"><a class="link" href="#import-export-feature">4.6. Import/Export feature</a></h3>
+<h3 id="import-export-feature"><a class="link" href="#import-export-feature">4.7. Import/Export feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="import"><a class="link" href="#import">Import</a></h5>
 <div class="paragraph">
@@ -1115,19 +1101,19 @@ So, it is better to start in clean state and re-add all the time period of all t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1158,7 +1144,7 @@ So, it is better to start in clean state and re-add all the time period of all t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1649,4 +1635,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 06:41:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 15:33:32 UTC</div></div></div></body></html>
