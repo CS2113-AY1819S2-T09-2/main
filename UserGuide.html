@@ -500,6 +500,11 @@ Returns <code>CS2113T lecture</code> and <code>CS3235 lecture</code></p>
 <div class="paragraph">
 <p>Shows a list of tasks in Tasketch.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/List.png" alt="List" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Format:</p>
 </div>
@@ -517,6 +522,10 @@ List all the tasks whose start date is today<br></p>
 <p><code>list DATE</code><br>
 Lists all the tasks whose start date is that specific date<br></p>
 </li>
+<li>
+<p><code>list CATEGORY</code><br>
+Lists all the tasks of the specified category.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -524,6 +533,10 @@ Lists all the tasks whose start date is that specific date<br></p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><code>list a</code><br>
+Lists all the tasks of academic category.</p>
+</li>
 <li>
 <p><code>list 02-19</code><br>
 Lists all the tasks which starts in February, 2019</p>
@@ -584,7 +597,12 @@ You should see a day of your choice with all the category times on the right sid
 <div class="sect2">
 <h3 id="reminding-the-users-of-the-nearest-task-code-remind-code"><a class="link" href="#reminding-the-users-of-the-nearest-task-code-remind-code">5.1. Reminding the users of the nearest task : <code>remind</code></a></h3>
 <div class="paragraph">
-<p>Shows to the user the nearest tasks of certain category.<br></p>
+<p>Shows to the user the nearest tasks of certain category.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reminder.png" alt="Reminder" width="790">
+</div>
 </div>
 <div class="paragraph">
 <p>Format:</p>
@@ -593,7 +611,7 @@ You should see a day of your choice with all the category times on the right sid
 <ul>
 <li>
 <p><code>remind start</code><br>
-Reminds the users of most recently begin tasks of all categories. The reminded tasks should be in colored task cards.</p>
+Reminds the users of the most recently begin tasks of all categories. The reminded tasks should be in colored task cards.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Remind_Start.png" alt="Remind Start" width="790">
@@ -602,7 +620,7 @@ Reminds the users of most recently begin tasks of all categories. The reminded t
 </li>
 <li>
 <p><code>remind ddl</code><br>
-Remind the users of most recent deadline of all categories. The reminded tasks should be in colored task cards.<br></p>
+Remind the users of the most recent deadline of all categories. The reminded tasks should be in colored task cards.<br></p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Remind_DDL.png" alt="Remind DDL" width="790">
@@ -615,28 +633,21 @@ Remind the users of most recent start tasks or deadline of specified category.</
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>"a" - Academic<br></p>
-</li>
-<li>
-<p>"e" - Entertainment<br></p>
-</li>
-<li>
-<p>"c" - Co-Curricular Activity (CCA)<br></p>
-</li>
-<li>
-<p>"r" - Errand<br></p>
-</li>
-<li>
-<p>"o" - Other</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+"a" - Academic<br>
+"e" - Entertainment<br>
+"c" - Co-Curricular Activity (CCA)<br>
+"r" - Errand<br>
+"o" - Other
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -644,8 +655,22 @@ Remind the users of most recent start tasks or deadline of specified category.</
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind e start</code><br>
-Shows a list of nearest start tasks of "entertainment" category.</p>
+<p><code>remind c start</code><br>
+Shows a list of nearest start CCA activities.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Remind_C_Start.png" alt="Remind C Start" width="790">
+</div>
+</div>
+</li>
+<li>
+<p><code>remind a ddl</code><br>
+Shows a list of nearest deadlines of academic activities.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Academic.png" alt="Academic" width="790">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -1092,6 +1117,10 @@ e.g. <code>find CS2113T</code></p>
 e.g. <code>list 02-19</code></p>
 </li>
 <li>
+<p><strong>Remind</strong> : <code>remind [category] start/end</code><br>
+e.g. <code>remind a ddl</code></p>
+</li>
+<li>
 <p><strong>Showtime</strong> : <code>showtime [DATE]</code>
 e.g. <code>showtime 13-02-19</code></p>
 </li>
@@ -1113,4 +1142,4 @@ e.g. <code>showtime 13-02-19</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 18:15:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 19:29:15 UTC</div></div></div></body></html>
