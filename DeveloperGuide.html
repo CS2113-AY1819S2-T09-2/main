@@ -38,7 +38,7 @@
 <li><a href="#suggestion-feature">4.2. Suggestion feature</a></li>
 <li><a href="#reminder-feature">4.3. Reminder feature</a></li>
 <li><a href="#effective-visualization-feature">4.4. Effective Visualization feature</a></li>
-<li><a href="#timeplanner-feature">4.5. Timeplanner feature</a></li>
+<li><a href="#daily-time-planner-feature">4.5. Daily Time Planner feature</a></li>
 <li><a href="#import-export-feature">4.6. Import/Export feature</a></li>
 <li><a href="#logging">4.7. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
@@ -58,7 +58,15 @@
 <div class="sect2">
 <h3 id="what-is-tasketch"><a class="link" href="#what-is-tasketch">1.1. What is Tasketch</a></h3>
 <div class="paragraph">
-<p>Tasketch is for those who need to manage their time by allocating time for each daily task. More importantly, Tasketch is optimized for those who prefer to use a desktop app and work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI).<br></p>
+<p>Tasketch is an application that helps you to manage your everyday time by giving you an overview of all the time planned
+for all the tasks in a daily manner. It also helps you to be aware of all the tasks dateline too.<br></p>
+</div>
+<div class="paragraph">
+<p>This application is designed for the busy NUS students who have many tasks, assignments and datelines everyday.<br></p>
+</div>
+<div class="paragraph">
+<p>Tasketch uses minimal (GUI) elements, instead opting for a faster Command Line Interface (CLI) while maintaining the
+benefits of the GUI. So, if you are used to the command line, Tasketch is sure to help manage your time effectively.<br></p>
 </div>
 <div class="paragraph">
 <p>This developer guide is introducing the development structure of Tasketch and provide a better understanding of how this project works. Jump to the <a href="#Quick Start">[Quick Start]</a> to get started. Enjoy!</p>
@@ -890,10 +898,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="timeplanner-feature"><a class="link" href="#timeplanner-feature">4.5. Timeplanner feature</a></h3>
+<h3 id="daily-time-planner-feature"><a class="link" href="#daily-time-planner-feature">4.5. Daily Time Planner feature</a></h3>
+<div class="paragraph">
+<p>Daily Time Planner uses the information of tasks added, such as start date, end date, start time, end time
+and category.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
-
+<div class="paragraph">
+<p>Start date and end date are used to identify whether the task added is a daily task, same dates mean that it is a daily
+task or else it is a long term task which is not meant for daily time planning. Thus, that task will be added to
+Daily Time Planner for monitoring.<br></p>
+</div>
+<div class="paragraph">
+<p>Start time and end time are used for calculating the time period of that task and to be added into the accumulated time
+for a category for that date of a task. ( eg. if the task with date 13-03-19 is a category academic task, its calculated
+time period will be added to the academic accumulated time in the day 13-03-19. )</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1520,4 +1541,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 02:35:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 03:56:09 UTC</div></div></div></body></html>
