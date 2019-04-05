@@ -915,6 +915,114 @@ Daily Time Planner for monitoring.<br></p>
 for a category for that date of a task. ( eg. if the task with date 13-03-19 is a category academic task, its calculated
 time period will be added to the academic accumulated time in the day 13-03-19. )</p>
 </div>
+<div class="paragraph">
+<p>These information is passed to the <code>calculateTime()</code> method in Day object in the form of string, so it has to be
+converted to double data type for calculation purpose using <code>Double.valueOf()</code>. Then it has to be rounded up to the power
+of 2 for consistency in data representation.</p>
+</div>
+<div class="paragraph">
+<p>Besides <code>Task</code> model being used to represent all the tasks added, there is also <code>Day</code> model to represent all the days
+which stores information (date and accumulated time of that 5 task categories) of the tasks added to that day.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each new <code>Task</code> added will not create new <code>Day</code> objects, instead it will either update the category times of that <code>Day</code>
+if the new task added has the same date (same start date), or create a new <code>Day</code> only if there no days that have the same
+date.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Data Structure</strong><br>
+<code>TaskBook</code> needs data structure to store data. Besides the ObservableList named <code>UniqueTaskList</code> to store all the tasks,
+there is also another ObservableList named <code>UniqueDayList</code> to store all the days.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Observable List is used to observe a list so that when there is change in the list, it will notified (listeners) all the other
+components that utilizing this Observable List data and do the necessary updates in their own data.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Besides those 2 mentioned above, a HashMap named <code>dayMap</code> is used to store another set of <code>Day</code> objects which are
+identical to the <code>UniqueDayList</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): As described above</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Faster in finding a <code>Day</code> object as it uses a key (start date of a task) to add into and find in the hash map.</p>
+</li>
+<li>
+<p>Cons: Double work as it needs to add into and remove the <code>Day</code> object from both <code>UniqueDayList</code> and <code>dayMap</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: Using the <code>UniqueDayList</code> only</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No extra work needed as adding and removing happens only to one data structure.</p>
+</li>
+<li>
+<p>Cons: Finding a <code>Day</code> object will be slower when there are large amount <code>Day</code> objects, as it needs to iterate through
+the list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, <code>dayMap</code> cannot be implemented alone as it doesn&#8217;t have the ability to observe and notified the listeners when
+there is a change. So, it has to be implemented with an ObservableList.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since a new <code>TaskBook</code> is created each time <code>undo</code> and <code>redo</code> command executed as <code>VersionedTaskBook</code> extends <code>TaskBook</code>,
+the data of the latest <code>UniqueTaskList</code> and <code>UniqueDayList</code> will need to transferred to the new <code>TaskBook</code> through
+<code>resetData(ReadOnlyTaskBook newData)</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>dayMap</code> will be a reinitialised to new <code>HashMap</code> as the data in <code>UniqueDayList</code> is inaccurate during <code>resetData(ReadOnlyTaskBook newData)</code>.
+So, it is better to start in clean state and re-add all the time period of all tasks in the <code>UniqueTaskList</code>. The
+<code>UniqueDayList</code> will be updated as well.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1541,4 +1649,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 04:41:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 06:41:47 UTC</div></div></div></body></html>
