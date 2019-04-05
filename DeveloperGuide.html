@@ -1018,7 +1018,7 @@ So, it is better to start in clean state and re-add all the time period of all t
 <div class="sect4">
 <h5 id="import"><a class="link" href="#import">Import</a></h5>
 <div class="paragraph">
-<p>This operation is exposed in the Model interface as Model#importTaskBook().</p>
+<p>This operation is exposed in the Model interface as <code>Model#importTaskBook()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
@@ -1036,31 +1036,39 @@ So, it is better to start in clean state and re-add all the time period of all t
 <p><strong>Step 4</strong>: The LogicManager calls execute() on the ImportCommand object</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling importTasksFromTaskBook() of the Model interface.</p>
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling <code>Model#importTasksFromTaskBook()</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 6</strong>: The Model interface creates a new Import object and then pass the filePath to the ImportManager.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>: The Import object will call JsonFileStorage class to loadDataFromSaveFile.</p>
+<p><strong>Step 7</strong>: The ModelManager will call <code>Import#readTaskBook()</code> and get a ReadOnlyTaskBook object.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The ImportManager class will first check whether the task in the file exists in Tasketch, if there is an existing task, just ignore this task.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>Step 8</strong>: The ImportManager class will call JsonFileStorage class to saveDataToFile.</p>
+<p><strong>Step 8</strong>: The ModelManager will then will call <code>addTasksToTaskBook()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to fromJsonString.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 10</strong>: The ModelManager will get a ReadOnlyTaskBook object and then it will addTasksToTaskBook.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 11</strong>: If there is any new task added, the ModelManager will updateFilteredTaskList.</p>
+<p><strong>Step 9</strong>: If there is any new task added, the ModelManager will then call <code>Model#updateFilteredTaskList()</code> .</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="export"><a class="link" href="#export">Export</a></h5>
 <div class="paragraph">
-<p>This operation is exposed in the Model interface as Model#exportTaskBook().</p>
+<p>This operation is exposed in the Model interface as <code>Model#exportTaskBook()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
@@ -1078,31 +1086,77 @@ So, it is better to start in clean state and re-add all the time period of all t
 <p><strong>Step 4</strong>: The LogicManager calls execute() on the ExportCommand object</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling exportFilteredTaskBook() of the Model interface.</p>
+<p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling <code>Model#exportFilteredTaskBook()</code> of the Model interface.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 6</strong>: The Model interface creates a new Export object and then pass the filteredTaskList and the filePath to the ExportManager.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>: The Export object calls saveFilteredTasks function.</p>
+<p><strong>Step 7</strong>: The Export object calls <code>Export#saveFilteredTasks()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 8</strong>: The ExportManager class will call JsonFileStorage class to saveDataToFile.</p>
+<p><strong>Step 8</strong>: The ExportManager class will call <code>JsonFileStorage#saveDataToFile()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 9</strong>: The JsonFileStorage class will call JsonUtil class to saveJsonFile.</p>
+<p><strong>Step 9</strong>: The JsonFileStorage class will call <code>JsonUtil#saveJsonFile()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 10</strong>: The JsonUtil class will call FileUtil class to writeToFile.</p>
+<p><strong>Step 10</strong>: The JsonUtil class will call <code>FileUtil#writeToFile()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 11</strong>: The FileUtil class will finally call File class to write.</p>
+<p><strong>Step 11</strong>: The FileUtil class will finally call <code>File#write()</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This File object will creates a new file if there is no existing file with the same name. And if there is an existing file, it will just write to this file no matter it is empty or not.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
-
+<div class="sect4">
+<h5 id="aspect-use-what-kind-of-file"><a class="link" href="#aspect-use-what-kind-of-file">Aspect: Use what kind of file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): Json file</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement because the addressbook itself uses Json file to store the data.</p>
+</li>
+<li>
+<p>Cons: Hard for users to read about the exported file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: Xml file</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Xml is more widely used and it shows tha data better.</p>
+</li>
+<li>
+<p>Cons: Hard to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1635,4 +1689,4 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 15:43:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-05 16:56:19 UTC</div></div></div></body></html>
