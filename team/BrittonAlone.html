@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Jin Shibo - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-tasketch"><a class="link" href="#project-tasketch">PROJECT: Tasketch</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
@@ -17,27 +17,64 @@
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This part shows my individual contributions to our project Tasketch.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: I have added <strong>the reminder feature</strong> to our Tasketch.</p>
+<p><strong>Major enhancement</strong>: I have added the <strong>reminder feature</strong> to our Tasketch.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Sometimes student tend to forget important deadline of their tasks or start time of their CCA events and etc. The reminder will show a list of tasks in time order for them to conveniently view what tasks are coming soon so that they will know what to prepare first.</p>
+<p>What it does: Sometimes student tend to forget important deadline of their tasks or start time of their CCA events and etc. When users type in remind command, Tasketch will show a list of tasks in time order for them to conveniently view what tasks are coming soon so that they will know what to prepare first.</p>
 </li>
 <li>
 <p>Justification: For busy university students, it is almost impossible for them to remember every start time or deadlines of their activities. A reminder is a common requirement of them to easily view these time in order. This feature significantly improves the users' using experience by meeting this requirement.</p>
 </li>
 <li>
-<p>Highlights: This feature implement a very useful method sort() in model API which can be used to implement other features.</p>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The task cards in the remind list are filled with different colors according to those tasks' urgency level. It is very striking for users to view and consequently have a good effect on reminding users.<br></p>
+</li>
+<li>
+<p>This feature implement a very useful method sort() in model API which can be used to implement other features.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: I made an enhancement to the list command of the previous version. In the previous version, list command can only list all the tasks in the storage. After enhancement, it support the usage like <strong>list td</strong> to list all the tasks of today so that user will know what need to be done today easily. It also support <strong>list [DATE]</strong>, which show a list of tasks on the specified date.</p>
+<p><strong>Minor enhancement</strong>: I made an enhancement to the list command of the previous version. In the previous version, list command can only list all the tasks in the storage. After enhancement, it support the following 4 kind of usages:</p>
 </li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>1. <strong>list</strong> - list all the tasks in Tasketch.</p>
+</li>
+<li>
+<p>2. <strong>list td</strong> - list all the tasks of today.</p>
+</li>
+<li>
+<p>3. <strong>list [Date]</strong> - list all the tasks of the specified date. The date can be accurate to day or month.</p>
+</li>
+<li>
+<p>4. <strong>list [Category]</strong> - list all the tasks of the specified category.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=BrittonAlone&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master">Functional code</a>] [<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=BrittonAlone&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master">Test code</a>]</p>
 </li>
@@ -119,6 +156,11 @@
 <div class="paragraph">
 <p>Shows a list of tasks in Tasketch.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/List.png" alt="List" width="790">
+</div>
+</div>
 <div class="paragraph">
 <p>Format:</p>
 </div>
@@ -126,11 +168,19 @@
 <ul>
 <li>
 <p><code>list</code><br>
-Lists all the tasks of today<br></p>
+Lists all the tasks in the storage<br></p>
+</li>
+<li>
+<p><code>list td</code><br>
+List all the tasks whose start date is today<br></p>
 </li>
 <li>
 <p><code>list DATE</code><br>
-Lists all the tasks of that specific date<br></p>
+Lists all the tasks whose start date is that specific date<br></p>
+</li>
+<li>
+<p><code>list CATEGORY</code><br>
+Lists all the tasks of the specified category.</p>
 </li>
 </ul>
 </div>
@@ -140,12 +190,16 @@ Lists all the tasks of that specific date<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list 02-2019</code><br>
-Lists all the tasks in February, 2019</p>
+<p><code>list a</code><br>
+Lists all the tasks of academic category.</p>
 </li>
 <li>
-<p><code>list 20-02-2019</code><br>
-Lists all the tasks in February 20th, 2019</p>
+<p><code>list 02-19</code><br>
+Lists all the tasks which starts in February, 2019</p>
+</li>
+<li>
+<p><code>list 20-02-19</code><br>
+Lists all the tasks which starts on February 20th, 2019</p>
 </li>
 <li>
 <p><code>list</code><br>
@@ -157,7 +211,12 @@ Lists all the tasks in the storage</p>
 <div class="sect2">
 <h3 id="reminding-the-users-of-the-nearest-task-code-remind-code"><a class="link" href="#reminding-the-users-of-the-nearest-task-code-remind-code">Reminding the users of the nearest task : <code>remind</code></a></h3>
 <div class="paragraph">
-<p>Shows to the user the nearest tasks of certain category.<br></p>
+<p>Shows to the user the nearest tasks of certain category.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reminder.png" alt="Reminder" width="790">
+</div>
 </div>
 <div class="paragraph">
 <p>Format:</p>
@@ -166,11 +225,21 @@ Lists all the tasks in the storage</p>
 <ul>
 <li>
 <p><code>remind start</code><br>
-Reminds the users of most recently begin tasks of all categories.<br></p>
+Reminds the users of the most recently begin tasks of all categories. The reminded tasks should be in colored task cards.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Remind_Start.png" alt="Remind Start" width="790">
+</div>
+</div>
 </li>
 <li>
 <p><code>remind ddl</code><br>
-Remind the users of most recent deadline of all categories.<br></p>
+Remind the users of the most recent deadline of all categories. The reminded tasks should be in colored task cards.<br></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Remind_DDL.png" alt="Remind DDL" width="790">
+</div>
+</div>
 </li>
 <li>
 <p><code>remind a/e/c/r/o ddl/start</code><br>
@@ -178,28 +247,21 @@ Remind the users of most recent start tasks or deadline of specified category.</
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>"a" - Academic<br></p>
-</li>
-<li>
-<p>"e" - Entertainment<br></p>
-</li>
-<li>
-<p>"c" - Co-Curricular Activity (CCA)<br></p>
-</li>
-<li>
-<p>"r" - Errand<br></p>
-</li>
-<li>
-<p>"o" - Other</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+"a" - Academic<br>
+"e" - Entertainment<br>
+"c" - Co-Curricular Activity (CCA)<br>
+"r" - Errand<br>
+"o" - Other
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -207,8 +269,22 @@ Remind the users of most recent start tasks or deadline of specified category.</
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind e start</code><br>
-Shows a list of nearest start tasks of "entertainment" category.</p>
+<p><code>remind c start</code><br>
+Shows a list of nearest start CCA activities.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Remind_C_Start.png" alt="Remind C Start" width="790">
+</div>
+</div>
+</li>
+<li>
+<p><code>remind a ddl</code><br>
+Shows a list of nearest deadlines of academic activities.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Academic.png" alt="Academic" width="790">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -228,6 +304,71 @@ Shows a list of nearest start tasks of "entertainment" category.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="reminder-feature"><a class="link" href="#reminder-feature">Reminder feature</a></h3>
+<div class="paragraph">
+<p>This feature will show user a remind list when remind command is requested. The remind list is a task list sorted by start time or deadline.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>We maintain a reminder list in each model. Note that each time user can ask for any category of tasks to be reminded, which means the remind list should contains all the tasks in Tasketch to be filtered. When the app runs, remind list will be initialised to be a <strong>FXCollections list</strong> of all the tasks in Tasketch.</p>
+</div>
+<div class="paragraph">
+<p>Remind feature has two formats of command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a) <code>remind [start/ddl]</code></p>
+</li>
+<li>
+<p>b) <code>remind [category] [start/ddl]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>they follows the following steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Step 1</strong> : <strong>Sort remind list.</strong><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>When <code>remind [start/ddl]</code> is requested, <strong>sortRemindListByStart() / sortRemindListByEnd()</strong> will be called. These two method will sort the remind list by start time or deadline of a task.</p>
+</li>
+<li>
+<p>When <code>remind [category] [start/ddl]</code> is requested, Tasketh will first do the same thing as described above. In addition, it will call <strong>filterRemindList()</strong> method to filter the remind list to contain only tasks with the specified category.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 2</strong> : <strong>Update the UI.</strong><br>
+The UI part of reminder is managed by <strong>ReminderPane</strong> class. After remind list is sorted. We update the UI of reminder in <strong>MainWindow</strong> by calling <strong>setReminder()</strong> method. <strong>setReminder()</strong> is implemented using <strong>ReminderPane</strong>.</p>
+</li>
+<li>
+<p><strong>Step 3</strong> : <strong>Re-initialize remind list.</strong><br>
+Call <strong>reinitialzeRemindList()</strong> method in <strong>MainWindow</strong> to set remind list to be a FXCollections list of all the tasks.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The reason of doing this is when we show the remind list in UI, we change it from FXCollections list to a Observable list. However, in current implementation, sorting method can only be applied to FXCollections list. So we need to re-initialize remind list to be a FXCollections list containing all the tasks after each call of remind command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -238,4 +379,4 @@ Shows a list of nearest start tasks of "entertainment" category.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 18:05:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 19:13:46 UTC</div></div></div></body></html>
