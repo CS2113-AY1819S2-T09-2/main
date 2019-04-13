@@ -367,6 +367,44 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </tr>
 </table>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemindSequenceDiagram.png" alt="RemindSequenceDiagram" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Use filteredTaskList as the remind list and all operations which are related to reminder are done to filteredTaskList.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very easy to implement.</p>
+</li>
+<li>
+<p>Cons: It is not user friendly. When user execute command like "list", "filteredTaskList" will change and as a result the remind list will also change. However, remind list is expected to be concise and up-to-date. It should point to all tasks in storage instead of filteredTaskList and only change when commands like "add" and "delete" are executed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Implement a separate remind list in model and maintain the remind list whenever the tasks in storage change.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is user friendly. As long as users don&#8217;t change the tasks in the storage, remind list will remain the same. When users make change to tasks, remind command will update remind list.</p>
+</li>
+<li>
+<p>Cons: Hard to implement. Developers need to implement a separate bunch of methods in logic and model interface and class to maintain the remind list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -379,4 +417,4 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:19:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 20:13:47 UTC</div></div></div></body></html>
