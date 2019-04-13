@@ -50,6 +50,11 @@
 <li><a href="#user-cases">Appendix C: User cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non-functional requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#instruction-for-manual-testing">Appendix F: Instruction for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#daily-time-planner">F.1. Daily Time Planner</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -457,6 +462,9 @@ add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version
 </li>
 <li>
 <p>stores the Task Book and Account List data.</p>
+</li>
+<li>
+<p>stores currently logged in Account.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Task&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -961,12 +969,8 @@ Daily Time Planner for monitoring.<br></p>
 <div class="paragraph">
 <p>Start time and end time are used for calculating the time period of that task and to be added into the accumulated time
 for a category for that date of a task. ( eg. if the task with date 13-03-19 is a category academic task, its calculated
-time period will be added to the academic accumulated time in the day 13-03-19. )</p>
-</div>
-<div class="paragraph">
-<p>These information is passed to the <code>calculateTime()</code> method in Day object in the form of string, so it has to be
-converted to double data type for calculation purpose using <code>Double.valueOf()</code>. Then it has to be rounded up to the power
-of 2 for consistency in data representation.</p>
+time period will be added to the academic accumulated time in the day 13-03-19. ) These information is passed to the
+<code>calculateTime()</code> method in Day object in the form of string.</p>
 </div>
 <div class="paragraph">
 <p>Besides <code>Task</code> model being used to represent all the tasks added, there is also <code>Day</code> model to represent all the days
@@ -1070,6 +1074,44 @@ So, it is better to start in clean state and re-add all the time period of all t
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enhancement-to-code-add-code-command"><a class="link" href="#enhancement-to-code-add-code-command">4.6.2. Enhancement to <code>add</code> Command</a></h4>
+<div class="paragraph">
+<p>To ensure the Daily Time Planner works as it intended, some input checks have been implemented to properly guide and to
+ensure the user to input the <code>add</code> command correctly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Adding Daily Task</strong><br>
+With the user inputs, the app will check the start and end dates. If the dates are identical, meaning it is a daily task,
+then the start and end times will be checked through <code>CheckValidTime(Task)</code> because it is not correct to have a task to
+end even before it starts.<br></p>
+</div>
+<div class="paragraph">
+<p>If the <code>CheckValidTime(Task)</code> results false, the system will throw exception and inform the
+user that it is an invalid command and tell the user that start time must be before the end time.</p>
+</div>
+<div class="paragraph">
+<p><strong>Adding Long Term Task</strong><br>
+If the dates are not identical, it only means that the task ends after few days from the start date or it can be end date
+is before start date. In order to verify this, the start and end dates need to be checked through <code>CheckValidDate(Task)</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>If <code>CheckValidDate(Task)</code> results negative, the system will throw exception and inform the user that it is an invalid
+command and tell the user that start date must be before the end date. If it results positive, the system will proceed to
+check the start and end times through <code>CheckValidTime(Task)</code> to ensure that the end time is after the start time. If it
+results negative, the system will throw exception and inform the user that it is an invalid command and tell the user
+that start time must be before the end time.</p>
+</div>
+<div class="paragraph">
+<p>If both <code>CheckValidDate(Task)</code> and <code>CheckValidTime(Task)</code> are passed, then it is a valid command.</p>
+</div>
+<div class="paragraph">
+<p>The system will also check for the date and time format. For dates (dd-mm-yy), the days should be more than 0 and less than 32,
+months should be more than 0 and less than 13. For times (hh.mm), the hours should range from 0 to 23, while
+the minutes range from 0 to 59.<br>
+If the formats are violated, error message with correct usage will be prompted.</p>
 </div>
 </div>
 </div>
@@ -1468,8 +1510,7 @@ task type each day</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>1a. User submits the following information. Task Name || Start date || Start time || End date || End time ||
-Description || Task category || Tag</p>
+<p>1a. User submits the following information. [Task Name] [Start date] [Start time] [End date] [End time] [Description] [Task category] [Tag]</p>
 </li>
 </ul>
 </div>
@@ -1513,13 +1554,11 @@ Description || Task category || Tag</p>
 </li>
 <li>
 <p>TaskBook lists the details of a task and user can edit the description of the task.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends</pre>
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
 </div>
 <h3 id="find-a-task" class="discrete">Find a task</h3>
 <div class="paragraph">
@@ -1532,13 +1571,11 @@ Description || Task category || Tag</p>
 </li>
 <li>
 <p>TaskBook will list all the tasks which satisfy the searching condition.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends.</pre>
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 <h3 id="delete-a-task" class="discrete">Delete a task</h3>
 <div class="paragraph">
@@ -1554,13 +1591,11 @@ Description || Task category || Tag</p>
 </li>
 <li>
 <p>TaskBook remove that task.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Use case ends</pre>
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Use case ends</p>
 </div>
 <h3 id="clear-tasks-by-time-period" class="discrete">Clear tasks by time period</h3>
 <div class="paragraph">
@@ -1577,12 +1612,20 @@ Description || Task category || Tag</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Use case ends</p>
+<p>Use case ends.</p>
 </div>
 <div class="paragraph">
-<p>Extension
-. User request clear [Date]
-. TaskBook removes the tasks which start from that day.</p>
+<p><strong>Extension</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request clear [Date]</p>
+</li>
+<li>
+<p>TaskBook removes the tasks which start from that day.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -1618,9 +1661,21 @@ Description || Task category || Tag</p>
 <p>Use case ends.</p>
 </div>
 <div class="paragraph">
-<p>Extension
-. User request list all
-.. TaskBook shows a list of all the tasks.</p>
+<p><strong>Extension</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request list all</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>TaskBook shows a list of all the tasks.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -1678,9 +1733,21 @@ Description || Task category || Tag</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Extension
-. User request for a reminder of certain category of tasks.
-.. TaskBook shows a list of tasks with the specified category which have nearest start time or deadline.</p>
+<p><strong>Extension</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request for a reminder of certain category of tasks.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>TaskBook shows a list of tasks with the specified category which have nearest start time or deadline.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 <h3 id="help" class="discrete">Help</h3>
 <div class="paragraph">
@@ -1751,4 +1818,162 @@ the tasks faster using commands than using the mouse.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-12 03:21:47 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="instruction-for-manual-testing"><a class="link" href="#instruction-for-manual-testing">Appendix F: Instruction for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="daily-time-planner"><a class="link" href="#daily-time-planner">F.1. Daily Time Planner</a></h3>
+<div class="paragraph">
+<p>To get started, you must first add a task. So, the inputs will be checked by the system, especially the Start and End Date
+as well as the Start and End Time.</p>
+</div>
+<div class="paragraph">
+<p><strong>Adding Daily Task</strong><br>
+Meaning that the Start Date is same as the End Date. You should see the time period correspond to its start date will be added
+into the Day list where all the summary of time planned for each categories on each day is found.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add n/TASK_NAME sd/START_DATE st/START_TIME ed/END_DATE et/END_TIME d/DESCRIPTION c/CATEGORIES [t/TAG][t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is a valid command as the Start and End Dates are the same and the Start Time is before the End Time.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/10.00 d/Talk about version control c/a</code><br>
+This command is not a valid command as the Start Time is after the End Time. The system will prompt a message of
+"Adding daily task, Start Time must be before End Time!".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Adding Long Term Task</strong><br>
+Meaning that the Start Date is different from the End Date. There will be no change in the Day list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/CS2113 task sd/12-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is a valid command as the Start Date is before End Date and the Start Time is before End Time.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/14-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This is not a valid command as the Start Date is after End Date. The system will prompt a message of
+"Start Date must be before End Date!".</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/12-03-19 st/12.00 ed/13-03-19 et/10.00 d/Talk about version control c/a</code><br>
+This is not a valid command as the Start Time is after End Time eventhough the dates are correct. The system will prompt a message of
+"Start Time must be before End Time!".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Valid Date and Time Check</strong><br>
+For adding both daily and long term tasks, the dates and the times will be checked as well to ensure that the format is
+correct.</p>
+</div>
+<div class="paragraph">
+<p>Dates are in 'dd-mm-yy' format, the user will need to input the exact format, eg. 13-03-19. The system is not smart enough
+to detect whether the day is correct for that month, so you will need to ensure the correctness yourself. However,
+the system will not allow days more than 31 and less than 1, while months not more than 12 and less than 1.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/CS2113 task sd/31.03.19 st/12.00 ed/13.03.19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the date format is wrong, should be using '-' instead of '.' symbol in between.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/32-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the day exceeds 31.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/00-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the day is less than 1.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/13-13-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the month exceeds 12.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/13-00-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the month less than 1.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Meanwhile, the times are in 24-hr format and in 'hh.mm' format, the user will need to input the exact format, eg. 08.00.
+the system will not allow hours more than 23 and less than 0, while minutes not more than 59 and less than 0.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/CS2113 task sd/31-03-19 st/12:00 ed/13-03-19 et/14:00 d/Talk about version control c/a</code><br>
+This command is invalid because the time format is wrong, should be using '.' instead of ':' symbol in between.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/12-03-19 st/24.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the hour exceeds 23.</p>
+</li>
+<li>
+<p><code>add n/CS2113 task sd/12-03-19 st/23.60 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br>
+This command is invalid because the minute exceeds 59.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Showing Daily Summary</strong>
+Only tasks with same Start Date and End Date will be shown here. If there 2 tasks with same Start Date but one of the task
+has different End Date, then only the task with the same Start Date and End Date will appear in the summary / Day list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>add n/CS2113 task sd/13-03-19 st/12.00 ed/13-03-19 et/14.00 d/Talk about version control c/a</code><br></p>
+</li>
+<li>
+<p><code>add n/CS2003 task sd/13-03-19 st/12.00 ed/14-03-19 et/14.00 d/Talk about test c/a</code><br></p>
+</li>
+<li>
+<p><code>showtime</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see for the date '13-03-19', academic time only has 2 hours (14.00-12.00=2.00, showing 2.0 instead) in the
+Day list.</p>
+</div>
+<div class="paragraph">
+<p>Look for the index number of the task named 'CS2003' in the task list.<br>
+4. <code>edit [index number] ed/13-03-19</code></p>
+</div>
+<div class="paragraph">
+<p>You should see for the date '13-03-19', academic time has 4 hours now ((14.00-12.00)+(14.00-12.00)=4.00, showing 4.0 instead)
+in the Day list.</p>
+</div>
+<div class="paragraph">
+<p>If you trying to find a particular date in the day list. For example, '13-03-19', use <code>showtime 13-03</code> or <code>showtime 13-03-19</code>. If the date is not in the day list, you will see empty list.<br>
+Invalid commands like <code>showtime sfsf</code> will prompt error message with the correct usage.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 03:26:07 UTC</div></div></div></body></html>
