@@ -777,6 +777,14 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 <div class="paragraph">
 <p><strong>Step 8</strong>: WrongCommandSuggestion would then return the suggestion in a string, which would then be inputted into the CommandException, to be thrown to the LogicManager class.</p>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows an example of how the WrongCommandSuggestion operation works with wrongly spelt command <code>clarr</code> (closest command is <code>clear</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WrongCommandSuggestionSequenceDiagram.png" alt="WrongCommandSuggestionSequenceDiagram" width="650">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
@@ -1146,7 +1154,7 @@ If the formats are violated, error message with correct usage will be prompted.<
 <p><strong>Step 6</strong>: The Model interface creates a new Import object and then pass the filePath to the ImportManager.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>: The ModelManager will call <code>Import#readTaskBook()</code> and get a ReadOnlyTaskBook object.</p>
+<p><strong>Step 7</strong>: The ModelManager will call <code>ImportManager#readTaskBook()</code> and get a ReadOnlyTaskBook object.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1163,10 +1171,24 @@ If the formats are violated, error message with correct usage will be prompted.<
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 8</strong>: The ModelManager will then will call <code>addTasksToTaskBook()</code>.</p>
+<p><strong>Step 8</strong>: The ImportManager will then will call <code>JsonFileStorage#loadDataFromSaveFile()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 9</strong>: If there is any new task added, the ModelManager will then call <code>Model#updateFilteredTaskList()</code> .</p>
+<p><strong>Step 9</strong>: The JsonFileStorage will then will call <code>JsonUtil#readJsonFile()</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 10</strong>: And then the ModelManager will then will call <code>addTasksToTaskBook()</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 11</strong>: If there is any new task added, the ModelManager will then call <code>Model#updateFilteredTaskList()</code> .</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Import operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportSequenceDiagram.png" alt="ImportSequenceDiagram" width="850">
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -1193,13 +1215,13 @@ If the formats are violated, error message with correct usage will be prompted.<
 <p><strong>Step 5</strong>: The Logic component then interacts with the Model component by calling <code>Model#exportFilteredTaskBook()</code> of the Model interface.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>: The Model interface creates a new Export object and then pass the filteredTaskList and the filePath to the ExportManager.</p>
+<p><strong>Step 6</strong>: The Model interface creates a new Export object and then pass the filteredTaskList.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>: The Export object calls <code>Export#saveFilteredTasks()</code>.</p>
+<p><strong>Step 7</strong>: The ExportManager object calls <code>ExportManager#saveFilteredTasks()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 8</strong>: The ExportManager class will call <code>JsonFileStorage#saveDataToFile()</code>.</p>
+<p><strong>Step 8</strong>: Then ExportManager class will call <code>JsonFileStorage#saveDataToFile()</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 9</strong>: The JsonFileStorage class will call <code>JsonUtil#saveJsonFile()</code>.</p>
@@ -1223,6 +1245,14 @@ If the formats are violated, error message with correct usage will be prompted.<
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Export operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram" width="850">
+</div>
 </div>
 </div>
 </div>
@@ -1976,4 +2006,4 @@ Invalid commands like <code>showtime sfsf</code> will prompt error message with 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 04:55:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 13:33:12 UTC</div></div></div></body></html>
