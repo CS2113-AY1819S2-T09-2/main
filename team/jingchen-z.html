@@ -409,6 +409,75 @@ Deletes the task with index number 1 in task list.</p>
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-timeline-executes"><a class="link" href="#aspect-how-timeline-executes">Aspect: How timeline executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Delete current timeline area and re-render timeline.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. User has the freedom to choose which day to display.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of execution and computation power.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The timeline is auto-updated after each <code>add</code> or <code>edit</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive to use.</p>
+</li>
+<li>
+<p>Cons: User lost the freedom to choose which day to display the timeline.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-special-data-structure-to-support-timeline-commands"><a class="link" href="#aspect-special-data-structure-to-support-timeline-commands">Aspect: Special Data structure to support timeline commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a 2-D array to store of PreTask objects instead of using Task objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Saves memory since filtering requires a copy of task details.</p>
+</li>
+<li>
+<p>Cons: Similar class is created. Not very friendly to maintain.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a 2-D array to store Task objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive and easy to implement since no new class is created.</p>
+</li>
+<li>
+<p>Cons: Requires more memory and computational power.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -420,4 +489,4 @@ Deletes the task with index number 1 in task list.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 13:33:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:19:04 UTC</div></div></div></body></html>

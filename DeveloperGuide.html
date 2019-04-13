@@ -380,7 +380,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>DefaultPage</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2113-AY1819S2-T09-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -395,6 +395,22 @@ The following class plays an important role at the architecture level:</p>
 </li>
 <li>
 <p>Listens for changes to <code>Model</code> data and feedback to user so that the UI can be updated with the modified data.</p>
+</li>
+<li>
+<p>Consists of 5 parts in MainWindow, 1 part in HelpWindow.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The default page consists of UpperPart and Timeline.</p>
+</li>
+<li>
+<p>UpperPart consists of Calendar, Reminder and Planner which are arranged in sequence.</p>
+</li>
+<li>
+<p>Timeline and reminder are exceptions for previous statement, please see the implementation for these two part.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -420,7 +436,7 @@ The following class plays an important role at the architecture level:</p>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a person) and <code>UI</code> since some UI parts depends on the execution result.</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -738,7 +754,9 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 <div class="sect2">
 <h3 id="automatically-complete-input-command-feature"><a class="link" href="#automatically-complete-input-command-feature">4.2. Automatically complete input command feature</a></h3>
-
+<div class="paragraph">
+<p>Auto-complete uses tab as a signal to trigger auto-complete and the command box will automatically complete the incomplete input.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="wrong-command-suggestion-feature"><a class="link" href="#wrong-command-suggestion-feature">4.3. Wrong Command Suggestion feature</a></h3>
@@ -908,6 +926,7 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 <div class="paragraph">
 <p>These two parts will help the user better arrange their time usage by visualization of time.</p>
 </div>
+<hr>
 <div class="ulist">
 <ul>
 <li>
@@ -927,14 +946,6 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </ul>
 </div>
 </li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<hr>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Implementation for Timeline:</strong> Using javafx and segment each part of the browserPanel.</p>
 <div class="ulist">
@@ -958,6 +969,79 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </div>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-timeline-executes"><a class="link" href="#aspect-how-timeline-executes">Aspect: How timeline executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Delete current timeline area and re-render timeline.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. User has the freedom to choose which day to display.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of execution and computation power.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The timeline is auto-updated after each <code>add</code> or <code>edit</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive to use.</p>
+</li>
+<li>
+<p>Cons: User lost the freedom to choose which day to display the timeline.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-special-data-structure-to-support-timeline-commands"><a class="link" href="#aspect-special-data-structure-to-support-timeline-commands">Aspect: Special Data structure to support timeline commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a 2-D array to store of PreTask objects instead of using Task objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Saves memory since filtering requires a copy of task details.</p>
+</li>
+<li>
+<p>Cons: Similar class is created. Not very friendly to maintain.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a 2-D array to store Task objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive and easy to implement since no new class is created.</p>
+</li>
+<li>
+<p>Cons: Requires more memory and computational power.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1257,7 +1341,7 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-use-what-kind-of-file"><a class="link" href="#aspect-use-what-kind-of-file">Aspect: Use what kind of file</a></h5>
 <div class="ulist">
@@ -2006,4 +2090,4 @@ Invalid commands like <code>showtime sfsf</code> will prompt error message with 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 13:33:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:19:04 UTC</div></div></div></body></html>
