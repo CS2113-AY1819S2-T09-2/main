@@ -408,7 +408,7 @@ The following class plays an important role at the architecture level:</p>
 <p>UpperPart consists of Calendar, Reminder and Planner which are arranged in sequence.</p>
 </li>
 <li>
-<p>Timeline and reminder are exceptions for previous statement, please see the implementation for these two part.</p>
+<p>Timeline and reminder are exceptions for updating with model&#8217;s changes, please see the implementation for these two part.</p>
 </li>
 </ul>
 </div>
@@ -2305,8 +2305,29 @@ in the Day list.</p>
 </div>
 <div class="paragraph">
 <p>If you trying to find a particular date in the day list. For example, '13-03-19', use <code>showtime 13-03</code> or <code>showtime 13-03-19</code>. If the date is not in the day list, you will see empty list.<br>
-Invalid commands like <code>showtime sfsf</code> will prompt error message with the correct usage.</p>
+Invalid commands like <code>showtime sfsf</code> will prompt error message with the correct usage.
+=== Timeline visualization
+Assuming that you followed the procedure given above, there should be a few tasks added to your Tasketch.<br>
+Such that you could test <code>timeline</code> using the above tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Viewing timeline</strong><br>
+In order to test the timeline, you are encouraged to follow the steps below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>timeline [DATE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>timeline 13-03-19</code><br>
+This command will display the tasks we just added whose start date is 13-03-19.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:02:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 13:19:40 UTC</div></div></div></body></html>
