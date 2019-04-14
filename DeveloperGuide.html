@@ -34,15 +34,16 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#versioned-tasketch-feature">4.1. Versioned Tasketch feature</a></li>
-<li><a href="#automatically-complete-input-command-feature">4.2. Automatically complete input command feature</a></li>
-<li><a href="#wrong-command-suggestion-feature">4.3. Wrong Command Suggestion feature</a></li>
-<li><a href="#reminder-feature">4.4. Reminder feature</a></li>
-<li><a href="#effective-visualization-feature">4.5. Effective Visualization feature</a></li>
-<li><a href="#daily-time-planner-feature">4.6. Daily Time Planner feature</a></li>
-<li><a href="#import-export-feature">4.7. Import/Export feature</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#login-feature">4.1. Login feature</a></li>
+<li><a href="#versioned-tasketch-feature">4.2. Versioned Tasketch feature</a></li>
+<li><a href="#automatically-complete-input-command-feature">4.3. Automatically complete input command feature</a></li>
+<li><a href="#wrong-command-suggestion-feature">4.4. Wrong Command Suggestion feature</a></li>
+<li><a href="#reminder-feature">4.5. Reminder feature</a></li>
+<li><a href="#effective-visualization-feature">4.6. Effective Visualization feature</a></li>
+<li><a href="#daily-time-planner-feature">4.7. Daily Time Planner feature</a></li>
+<li><a href="#import-export-feature">4.8. Import/Export feature</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -551,9 +552,95 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Task Book</co
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="versioned-tasketch-feature"><a class="link" href="#versioned-tasketch-feature">4.1. Versioned Tasketch feature</a></h3>
+<h3 id="login-feature"><a class="link" href="#login-feature">4.1. Login feature</a></h3>
+<div class="paragraph">
+<p>The login feature will unlock all commands for the users, otherwise the user can only execute following commands:
+* login
+* loginStatus
+* listAccounts
+* findAccount
+* help
+* history
+* exit</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The login mechanism is facilitated by <code>LoginCommand</code>. It extends Command and implements the following operations:
+* <code>LoginCommand#modifyLoginStatus()</code> — checks whether there exists such username and corresponding password in accountlist. If troue, updates the logged in account status in Model accordingly.
+* <code>LoginCommand#execute()</code> — calls LoginCommand#modifyLoginStatus(). Then, checks login status in Model and displays a login success message if true and displays a failure message otherwise.</p>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as Model#setLoggedInUser() and Model#getLoginStatus() respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the LoginCommand mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user executes <code>login u/admin p/admin</code> command to log into Tasketch. The username and admin are both "admin".</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The execute command calls <code>Model#getLoginStatus()</code> and checks whether the user has already logged in with an account. If true, execute throws a CommandException notifying the user that he is already logged in.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The execute command then calls <code>LoginCommand#modifyLoginStatus()</code>.It checks whether the username "admin" and its corresponding password "admin" exists in the accountlist.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: If there exists such an account, <code>LoginCommand#modifyLoginStatus()</code> calls <code>Model#setLoggedInUser()</code> which updates the logged in account status in model with the logged in account set to admin and logged in status set to true.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The login command checks the login status according to <code>Model#getLoginStatus()</code>. A success message is printed if true; otherwise a failure message is printed.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the login operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loginSequenceDiagram.png" alt="loginSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-login-executes"><a class="link" href="#aspect-how-login-executes">Aspect: How login executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Check against various accounts stored in a file and allow access if match.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It allows multiple accounts to access to Taskbook.</p>
+</li>
+<li>
+<p>Cons: It may cost more memory to store the account list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Checks against a single account that can be modified.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: Only one account can access to Taskbook. If the user accidently loses the account, the whole application may be locked up.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="versioned-tasketch-feature"><a class="link" href="#versioned-tasketch-feature">4.2. Versioned Tasketch feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedTaskBook</code>.
 It extends <code>TaskBook</code> with an undo/redo history, stored internally as an <code>taskBookStateList</code> and <code>currentStatePointer</code>.
@@ -683,7 +770,7 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -753,18 +840,24 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 </div>
 <div class="sect2">
-<h3 id="automatically-complete-input-command-feature"><a class="link" href="#automatically-complete-input-command-feature">4.2. Automatically complete input command feature</a></h3>
+<h3 id="automatically-complete-input-command-feature"><a class="link" href="#automatically-complete-input-command-feature">4.3. Automatically complete input command feature</a></h3>
 <div class="paragraph">
 <p>Auto-complete uses tab as a signal to trigger auto-complete and the command box will automatically complete the incomplete input.</p>
 </div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>When a user press TAB key, if the command is</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="wrong-command-suggestion-feature"><a class="link" href="#wrong-command-suggestion-feature">4.3. Wrong Command Suggestion feature</a></h3>
+<h3 id="wrong-command-suggestion-feature"><a class="link" href="#wrong-command-suggestion-feature">4.4. Wrong Command Suggestion feature</a></h3>
 <div class="paragraph">
 <p>The suggestions feature gives users helpful suggestions on what command to type, and corrections for commands when incorrect commands are being entered.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>When a user completes entering a command (after pressing ENTER key), if the command typed is invalid, the system will suggest a similar command based on the edit distance (which will be explained later).</p>
 </div>
@@ -805,7 +898,7 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -852,12 +945,12 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 </div>
 <div class="sect2">
-<h3 id="reminder-feature"><a class="link" href="#reminder-feature">4.4. Reminder feature</a></h3>
+<h3 id="reminder-feature"><a class="link" href="#reminder-feature">4.5. Reminder feature</a></h3>
 <div class="paragraph">
 <p>This feature will show user a remind list when remind command is requested. The remind list is a task list sorted by start time or deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>We maintain a reminder list in each model. Note that each time user can ask for any category of tasks to be reminded, which means the remind list should contains all the tasks in Tasketch to be filtered. When the app runs, remind list will be initialised to be a <strong>FXCollections list</strong> of all the tasks in Tasketch.</p>
 </div>
@@ -921,7 +1014,7 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.5.2. Design Consideration</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -955,9 +1048,9 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </div>
 </div>
 <div class="sect2">
-<h3 id="effective-visualization-feature"><a class="link" href="#effective-visualization-feature">4.5. Effective Visualization feature</a></h3>
+<h3 id="effective-visualization-feature"><a class="link" href="#effective-visualization-feature">4.6. Effective Visualization feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>There are mainly two parts in this features, <strong>calendar</strong> and <strong>timeline arrangement</strong></p>
 </div>
@@ -1014,7 +1107,7 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 <hr>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-timeline-executes"><a class="link" href="#aspect-how-timeline-executes">Aspect: How timeline executes</a></h5>
 <div class="ulist">
@@ -1084,13 +1177,13 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 </div>
 </div>
 <div class="sect2">
-<h3 id="daily-time-planner-feature"><a class="link" href="#daily-time-planner-feature">4.6. Daily Time Planner feature</a></h3>
+<h3 id="daily-time-planner-feature"><a class="link" href="#daily-time-planner-feature">4.7. Daily Time Planner feature</a></h3>
 <div class="paragraph">
 <p>Daily Time Planner uses the information of tasks added, such as start date, end date, start time, end time
 and category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Start date and end date are used to identify whether the task added is a daily task, same dates mean that it is a daily
 task or else it is a long term task which is not meant for daily time planning. Thus, that task will be added to
@@ -1207,7 +1300,7 @@ So, it is better to start in clean state and re-add all the time period of all t
 </div>
 </div>
 <div class="sect3">
-<h4 id="enhancement-to-code-add-code-command"><a class="link" href="#enhancement-to-code-add-code-command">4.6.2. Enhancement to <code>add</code> Command</a></h4>
+<h4 id="enhancement-to-code-add-code-command"><a class="link" href="#enhancement-to-code-add-code-command">4.7.2. Enhancement to <code>add</code> Command</a></h4>
 <div class="paragraph">
 <p>To ensure the Daily Time Planner works as it intended, some input checks have been implemented to properly guide and to
 ensure the user to input the <code>add</code> command correctly.</p>
@@ -1246,9 +1339,9 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-feature"><a class="link" href="#import-export-feature">4.7. Import/Export feature</a></h3>
+<h3 id="import-export-feature"><a class="link" href="#import-export-feature">4.8. Import/Export feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="import"><a class="link" href="#import">Import</a></h5>
 <div class="paragraph">
@@ -1379,7 +1472,7 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-use-what-kind-of-file"><a class="link" href="#aspect-use-what-kind-of-file">Aspect: Use what kind of file</a></h5>
 <div class="ulist">
@@ -1416,14 +1509,14 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1454,7 +1547,7 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2128,4 +2221,4 @@ Invalid commands like <code>showtime sfsf</code> will prompt error message with 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 20:13:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 08:11:16 UTC</div></div></div></body></html>
