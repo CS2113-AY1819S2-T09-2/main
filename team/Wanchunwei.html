@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Wan Chunwei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Tasketch</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S2-T09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Wan Chunwei - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-tasketch"><a class="link" href="#project-tasketch">PROJECT: Tasketch</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,15 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Tasketch is an desktop application designed for busy NUS students who have many tasks, assignments and deadlines everyday. Tasketch helps you to manage your everyday time by giving you an overview of all the time planned for all the tasks in a daily manner.Tasketch uses minimal (GUI) elements, instead opting for a faster Command Line Interface (CLI) while maintaining the benefits of the GUI. So, if you are used to the command line, Tasketch is sure to help manage your time effectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1. An overview of our application.</em></p>
 </div>
 </div>
 </div>
@@ -20,32 +28,80 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong> 1: Added <strong>login</strong> feature.<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It allows the user to log into the Tasketch with their account. If the user doesn&#8217;t login, all commands will be locked up except</p>
+<div class="ulist">
+<ul>
+<li>
+<p>login</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>loginstatus</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>listaccounts</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>findaccount</p>
+</li>
+<li>
+<p>help</p>
+</li>
+<li>
+<p>history</p>
+</li>
+<li>
+<p>exit
+After logging in, all commands will be unlocked for user. Besides, the user can add new accounts, edit accounts information, check login status, list all accounts, find accounts containing keywords, and delete accounts.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p>Justification: This feature prevent Tasketch from unauthorized modification. A user cannot modify the content of Tasketch without logging in.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Highlights: Tasketch provides a default account whose username and password are both "admin". We suggest that do not delete that account.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Major enhancement</strong> 2: Added <strong>Auto-complete</strong> feature.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: If you type something wrongly, the app will automatically correct type error and fulfill their incomplete typed command in command line. If you type correct command, then it can help fulfill the format string of the parameter for corresponding command.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user may not be familiar with the command and may be hard to type a very long string of parameters</p>
+</li>
+<li>
+<p>Highlights: This enhancement will be affected by existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as if user type a command wrongly it required an algorism that can compute the similarity compared with the command user type in and existing command and return the most similar command.
+**Credits: I apply a math concept of "Edit distance", which means caculate the similarity between two strings by
+caculating the time of editing for converting one string to another string.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement 'edit' command that allows the user to edit his task information</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=Wanchunwei&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=jingchen-z&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master&amp;repoSort=true">Functional code</a>] [<a href="https://nuscs2113-ay1819s2.github.io/dashboard-beta/#search=Wanchunwei&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-01&amp;timeframe=day&amp;reverse=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabAuthor=jingchen-z&amp;tabRepo=CS2113-AY1819S2-T09-2_main_master&amp;repoSort=true">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -53,7 +109,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Brainstorm new features for Tasketch</p>
 </li>
 </ul>
 </div>
@@ -63,10 +119,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Fix bugs for and Update previous commands.</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the Import and Export command. Makes Tasketch can import and export account list as a Json file(Pull requests <a href="https://github.com/CS2113-AY1819S2-T09-2/main/pull/160">#160</a>).</p>
 </li>
 </ul>
 </div>
@@ -76,7 +132,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Update User Guide and Developer Guide. (available <a href="https://github.com/Wanchunwei/main/blob/master/docs/UserGuide.adoc">UserGuide</a>, <a href="https://github.com/Wanchunwei/main/blob/master/docs/DeveloperGuide.adoc">DeveloperGuide</a>)</p>
 </li>
 </ul>
 </div>
@@ -86,29 +142,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Reported bugs and offered suggestions for other teams in the class</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed (with non-trivial review comments)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +154,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +170,432 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><a href="https://github.com/CS2113-AY1819S2-T09-2/main/blob/master/docs/UserGuide.adoc">../UserGuide.adoc</a></p>
+</div>
+<div class="sect2">
+<h3 id="quick-start"><a class="link" href="#quick-start">Quick Start</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Before start to use Tasketch. You should first log into this app via login command.
+For example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>login u/admin p/admin</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tasketch provides a default account whose username and password are both "admin". We suggest that do not delete that account.</p>
+</li>
+<li>
+<p>If you do not login, you can only execute following commands and other commands are locked.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>login</p>
+</li>
+<li>
+<p>loginstatus</p>
+</li>
+<li>
+<p>listaccounts</p>
+</li>
+<li>
+<p>findaccount</p>
+</li>
+<li>
+<p>help</p>
+</li>
+<li>
+<p>history</p>
+</li>
+<li>
+<p>exit</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="login"><a class="link" href="#login">Login</a></h3>
+<div class="sect3">
+<h4 id="login-2"><a class="link" href="#login-2">Login</a></h4>
+<div class="paragraph">
+<p>You must login to manage your Tasketch and unlock all commands.</p>
+</div>
+<div class="paragraph">
+<p>Format:  <code>login u/USERNAME p/PASSWORD</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>login u/admin p/admin</code><br>
+login with the default account if no account has logged in Tasketch.<br>
+<span class="image"><img src="../images/login3.png" alt="login3" width="790"></span></p>
+</li>
+<li>
+<p><code>login u/admin p/admin</code><br>
+login with the default account if an account has already logged in Tasketch..<br>
+<span class="image"><img src="../images/login1.png" alt="login1" width="790"></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="addaccount"><a class="link" href="#addaccount">AddAccount</a></h4>
+<div class="paragraph">
+<p>Add a new account to Tasketch</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addaccount u/USERNAME p/PASSWORD</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addaccount u/wan p/123456</code><br>
+Add a new account whose name is "wan" and password is "123456".</p>
+</li>
+<li>
+<p><code>addaccount u/John p/541623</code><br>
+Add a new account whose name is "John" and password is "541623".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+You should see the account has been added to the accountlist if you execute <code>listAccounts</code> command(add a new account whose username is "wan" and a new account whose username is "John").<br>
+<span class="image"><img src="../images/AddAccount.png" alt="AddAccount" width="790"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listaccounts"><a class="link" href="#listaccounts">ListAccounts</a></h4>
+<div class="paragraph">
+<p>Shows a list of tasks in Tasketch.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listaccounts</code><br>
+Lists all the accounts in the accountlist</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listaccounts</code><br>
+Lists all the accounts in the accountlist</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+You should see a list of all the accounts in the Result Box.<br>
+<span class="image"><img src="../images/listAccounts.png" alt="listAccounts" width="790"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editaccount"><a class="link" href="#editaccount">EditAccount</a></h4>
+<div class="paragraph">
+<p>Edit a existed account with its username and password.
+Format: <code>editaccount INDEX u/USERNAME [p/PASSWORD]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the account at the specified INDEX. The index refers to the index number shown in the displayed list when 'listAccounts' is used. The index must be a positive integer 1, 2, 3, …</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editaccount 2 p/123123</code><br>
+Changes the password of the second account to 123123!</p>
+</li>
+<li>
+<p><code>editaccount 2 u/John</code><br>
+Changes the username of the second account to John!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+Before execute  <code>editaccount 2 u/John</code>:<br>
+<span class="image"><img src="../images/editAccount1.png" alt="editAccount1" width="790"></span>+
+After execute <code>editaccount 2 u/John</code>:<br>
+<span class="image"><img src="../images/editAccount2.png" alt="editAccount2" width="790"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="findaccount"><a class="link" href="#findaccount">FindAccount</a></h4>
+<div class="paragraph">
+<p>Finds accounts whose username contain the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>findaccount KEYWORD</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>WAN</code> will match <code>wan</code>.</p>
+</li>
+<li>
+<p>Only the username is searched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findaccount ad</code><br>
+Returns <code>admin</code>.</p>
+</li>
+<li>
+<p><code>findaccount AdMin</code><br>
+Returns <code>admin</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleteaccount"><a class="link" href="#deleteaccount">DeleteAccount</a></h4>
+<div class="paragraph">
+<p>Deletes a specified account from Tasketch.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteaccount INDEX_NUMBER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Each account is identified by a index number shown in the account list.</p>
+</li>
+<li>
+<p>Deletes the account with the index number.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listaccounts</code><br>
+<code>deleteaccount 2</code><br>
+Deletes the account with index number 2 in task list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+The account of the index number you choose should be delete from accountlist.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="loginstatus"><a class="link" href="#loginstatus">LoginStatus</a></h4>
+<div class="paragraph">
+<p>Shows whether the user log in Tasketch and which account the user logged in.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loginstatus</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loginstatus</code><br>
+If you do not login with any accounts, return <code>Not logged in</code>.
+<span class="image"><img src="../images/loginStatus.png" alt="loginStatus" width="790"></span></p>
+</li>
+<li>
+<p><code>loginstatus</code><br>
+If you login with default account, return <code>Logged in as: admin</code>.
+<span class="image"><img src="../images/loginStatus1.png" alt="loginStatus1" width="790"></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="logout"><a class="link" href="#logout">Logout</a></h4>
+<div class="paragraph">
+<p>Log out if you have logged in with an account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>logout</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>logout</code><br>
+If you do not login with any accounts, return <code>Already logged out</code>.<br>
+<span class="image"><img src="../images/logout1.png" alt="logout1" width="790"></span></p>
+</li>
+<li>
+<p><code>logout</code><br>
+If you login with default account, return <code>Logged out: admin</code>.<br>
+<span class="image"><img src="../images/logout.png" alt="logout" width="790"></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task-code-edit-code-code-e-code"><a class="link" href="#editing-a-task-code-edit-code-code-e-code">Editing a task : <code>edit</code>/<code>e</code></a></h3>
+<div class="paragraph">
+<p>Sometimes, you might have added a task information wrongly or wish to change its information. This command will allow you to
+edit all existing tasks in Tasketch.</p>
+</div>
+<div class="paragraph">
+<p>Since the Daily Time Planner only includes tasks that start and end on the same date. Editing the start date and end date
+of a task will also lead to some changes.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Changing from same start and end date to different dates will remove the task from Daily Time Planner, its corresponding
+time duration will also be deducted.</p>
+</li>
+<li>
+<p>Changing from different start and end date to same dates will make it a daily task, thus to be included into the Daily
+Time Planner, its corresponding time duration will also be added.</p>
+</li>
+<li>
+<p>Maintaining the same start and end dates but changed the start or end time of a task. Its time duration changes will
+also be updated in the Daily Time Planner.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit TASK_ID [n/NAME] [st/START_TIME] [et/END_TIME] [d/DESCRIPTION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the task with the index number shown in the task list.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing description, the existing description of the task will be removed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 st/12.00 et/14.00 t/GET1018</code><br>
+Edits the start time and end time of the task with ID 1 to be <code>12.00</code> and <code>14.00</code> respectively. Change the topic to <code>GET1018</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Result:<br>
+The information edited for that task will be updated and reflected in the Task Box.<br>
+The day related to that edited task will be updated and reflected in the Day Box.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatically-complete-input-command-for-user"><a class="link" href="#automatically-complete-input-command-for-user">Automatically complete input command for user</a></h3>
+<div class="paragraph">
+<p>If you type something wrongly, the app will automatically correct type error and fulfill their incomplete typed command in command line.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The input is not case sensitive.</p>
+</li>
+<li>
+<p>If you type a string that is a substring of one of the commands, then command line will fulfill the string with this command.</p>
+</li>
+<li>
+<p>If you type a string that is not a substring of any of the commands, then command line will show the most similar command compared this string.</p>
+</li>
+<li>
+<p>if you type a string can not match any command, then command line will show <code>No command matched</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you want to type <code>list</code>, you can type <code>li</code> instead, and press <code>TAB</code> on keyboard. The system will automatically fulfill the command in command line with <code>list</code>.</p>
+</li>
+<li>
+<p>If you want to type <code>history</code>, but you type <code>histoe</code> instead, and press <code>tap</code> on keyboard. The system will automatically fulfill the command line with <code>history</code>.</p>
+</li>
+<li>
+<p>If you want to type <code>add</code>, but you type <code>aefw</code> instead, and press <code>tap</code> on keyboard. The system will automatically fulfill the command line with <code>No command matched</code>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,6 +611,195 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p><a href="https://github.com/CS2113-AY1819S2-T09-2/main/blob/master/docs/UserGuide.adoc">../UserGuide.adoc</a></p>
+</div>
+<div class="sect2">
+<h3 id="login-feature"><a class="link" href="#login-feature">Login feature</a></h3>
+<div class="paragraph">
+<p>The login feature will unlock all commands for the users, otherwise the user can only execute following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>login</code></p>
+</li>
+<li>
+<p><code>loginStatus</code></p>
+</li>
+<li>
+<p><code>listAccounts</code></p>
+</li>
+<li>
+<p><code>findAccount</code></p>
+</li>
+<li>
+<p><code>help</code></p>
+</li>
+<li>
+<p><code>history</code></p>
+</li>
+<li>
+<p><code>exist</code></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The login mechanism is facilitated by <code>LoginCommand</code>. It extends Command and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoginCommand#modifyLoginStatus()</code> — checks whether there exists such username and corresponding password in accountlist. If troue, updates the logged in account status in Model accordingly.</p>
+</li>
+<li>
+<p><code>LoginCommand#execute()</code> — calls LoginCommand#modifyLoginStatus(). Then, checks login status in Model and displays a login success message if true and displays a failure message otherwise.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as Model#setLoggedInUser() and Model#getLoginStatus() respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the LoginCommand mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user executes <code>login u/admin p/admin</code> command to log into Tasketch. The username and admin are both "admin".</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The execute command calls <code>Model#getLoginStatus()</code> and checks whether the user has already logged in with an account. If true, execute throws a CommandException notifying the user that he is already logged in.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: The execute command then calls <code>LoginCommand#modifyLoginStatus()</code>.It checks whether the username "admin" and its corresponding password "admin" exists in the accountlist.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: If there exists such an account, <code>LoginCommand#modifyLoginStatus()</code> calls <code>Model#setLoggedInUser()</code> which updates the logged in account status in model with the logged in account set to admin and logged in status set to true.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>: The login command checks the login status according to <code>Model#getLoginStatus()</code>. A success message is printed if true; otherwise a failure message is printed.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the login operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginSequenceDiagram.png" alt="LoginSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-login-executes"><a class="link" href="#aspect-how-login-executes">Aspect: How login executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Check against various accounts stored in a file and allow access if match.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It allows multiple accounts to access to Taskbook.</p>
+</li>
+<li>
+<p>Cons: It may cost more memory to store the account list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Checks against a single account that can be modified.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: Only one account can access to Taskbook. If the user accidently loses the account, the whole application may be locked up.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatically-complete-input-command-feature"><a class="link" href="#automatically-complete-input-command-feature">Automatically complete input command feature</a></h3>
+<div class="paragraph">
+<p>Auto-complete uses tab as a signal to trigger auto-complete and the command box will automatically complete the incomplete input.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>When a user press TAB key, if the command is incomplete, Auto-complete feature will fulfill the automatically. If the command is completed, Auto- complete feature will fulfill the format string of corresponding parameters of the command.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage of how the WrongCommandSuggestion behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user type an command in command line and press <code>TAB</code> from keyboard.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The command will be compared with <code>CommandBox#CommandList</code>. If the typed command is in <code>CommandBox#CommandList</code>, which means it is a valid command, then call <code>CommandBox#showParameterForCommand()</code> to fulfill the format string of parameters of the command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Otherwise, <code>TAB</code> will call <code>CommandBox#autoCompleteInputCommand()</code> to fulfill the incomplete command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: <code>CommandBox#autoCompleteInputCommand()</code> will call <code>CommandBox#getMostSimilarCommand()</code> to get the most similar command from <code>Comm,andBox#CommandList</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: <code>CommandBox#getMostSimilarCommand()</code> will call <code>CommandBox#compare()</code> to get the similarity by caculating the times of editing needed for changing the input command into command in <code>CommandBox#CommandList</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>:  If the similarity between the input command and the most similar command is more than 0.5, then replace the incomplete command with the most similar command. Otherwise, fulfill the command line with "No matched command".</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows an example of how the Auto-complete operation works with incomplete command <code>histoe</code> (closest command is <code>history</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Auto-completeSequenceDiagram_01.png" alt="Auto completeSequenceDiagram 01" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Auto-complete the input command by that if the input incomplete command is a substring of a command in CommandList, fulfill the input command with that command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple.</p>
+</li>
+<li>
+<p>Cons: If the user wrongly types the incomplete command, it can not correct them.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2(current choice):</strong>if the input incomplete command is a substring of a command in CommandList, fulfill the input command with that command. If the input incomplete command is not a substring of any commands in CommandList, caculate the similarity and return the most similar command by applying a math concept: Levenshtein Distance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Even if the user wrongly type a command, Auto-complete feature can correct it.</p>
+</li>
+<li>
+<p>Cons: Difficult to design the algorithm.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,4 +810,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 14:11:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 14:12:54 UTC</div></div></div></body></html>
