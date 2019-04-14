@@ -554,21 +554,47 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Task Book</co
 <div class="sect2">
 <h3 id="login-feature"><a class="link" href="#login-feature">4.1. Login feature</a></h3>
 <div class="paragraph">
-<p>The login feature will unlock all commands for the users, otherwise the user can only execute following commands:
-* login
-* loginStatus
-* listAccounts
-* findAccount
-* help
-* history
-* exit</p>
+<p>The login feature will unlock all commands for the users, otherwise the user can only execute following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>login</code></p>
+</li>
+<li>
+<p><code>loginStatus</code></p>
+</li>
+<li>
+<p><code>listAccounts</code></p>
+</li>
+<li>
+<p><code>findAccount</code></p>
+</li>
+<li>
+<p><code>help</code></p>
+</li>
+<li>
+<p><code>history</code></p>
+</li>
+<li>
+<p><code>exist</code></p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The login mechanism is facilitated by <code>LoginCommand</code>. It extends Command and implements the following operations:
-* <code>LoginCommand#modifyLoginStatus()</code> — checks whether there exists such username and corresponding password in accountlist. If troue, updates the logged in account status in Model accordingly.
-* <code>LoginCommand#execute()</code> — calls LoginCommand#modifyLoginStatus(). Then, checks login status in Model and displays a login success message if true and displays a failure message otherwise.</p>
+<p>The login mechanism is facilitated by <code>LoginCommand</code>. It extends Command and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoginCommand#modifyLoginStatus()</code> — checks whether there exists such username and corresponding password in accountlist. If troue, updates the logged in account status in Model accordingly.</p>
+</li>
+<li>
+<p><code>LoginCommand#execute()</code> — calls LoginCommand#modifyLoginStatus(). Then, checks login status in Model and displays a login success message if true and displays a failure message otherwise.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as Model#setLoggedInUser() and Model#getLoginStatus() respectively.</p>
@@ -596,7 +622,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Task Book</co
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/loginSequenceDiagram.png" alt="loginSequenceDiagram" width="800">
+<img src="images/LoginSequenceDiagram.png" alt="LoginSequenceDiagram" width="800">
 </div>
 </div>
 </div>
@@ -847,7 +873,69 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>When a user press TAB key, if the command is</p>
+<p>When a user press TAB key, if the command is incomplete, Auto-complete feature will fulfill the automatically. If the command is completed, Auto- complete feature will fulfill the format string of corresponding parameters of the command.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage of how the WrongCommandSuggestion behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: The user type an command in command line and press <code>TAB</code> from keyboard.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: The command will be compared with <code>CommandBox#CommandList</code>. If the typed command is in <code>CommandBox#CommandList</code>, which means it is a valid command, then call <code>CommandBox#showParameterForCommand()</code> to fulfill the format string of parameters of the command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Otherwise, <code>TAB</code> will call <code>CommandBox#autoCompleteInputCommand()</code> to fulfill the incomplete command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: <code>CommandBox#autoCompleteInputCommand()</code> will call <code>CommandBox#getMostSimilarCommand()</code> to get the most similar command from <code>Comm,andBox#CommandList</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>: <code>CommandBox#getMostSimilarCommand()</code> will call <code>CommandBox#compare()</code> to get the similarity by caculating the times of editing needed for changing the input command into command in <code>CommandBox#CommandList</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>:  If the similarity between the input command and the most similar command is more than 0.5, then replace the incomplete command with the most similar command. Otherwise, fulfill the command line with "No matched command".</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows an example of how the Auto-complete operation works with incomplete command <code>histoe</code> (closest command is <code>history</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Auto-completeSequenceDiagram_01.png" alt="Auto completeSequenceDiagram 01" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Auto-complete the input command by that if the input incomplete command is a substring of a command in CommandList, fulfill the input command with that command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple.</p>
+</li>
+<li>
+<p>Cons: If the user wrongly types the incomplete command, it can not correct them.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2(current choice):</strong>if the input incomplete command is a substring of a command in CommandList, fulfill the input command with that command. If the input incomplete command is not a substring of any commands in CommandList, caculate the similarity and return the most similar command by applying a math concept: Levenshtein Distance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Even if the user wrongly type a command, Auto-complete feature can correct it.</p>
+</li>
+<li>
+<p>Cons: Difficult to design the algorithm.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -898,7 +986,7 @@ If the <code>currentStatePointer</code> is at index <code>taskBookStateList.size
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1107,7 +1195,7 @@ The reason of doing this is when we show the remind list in UI, we change it fro
 <hr>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-timeline-executes"><a class="link" href="#aspect-how-timeline-executes">Aspect: How timeline executes</a></h5>
 <div class="ulist">
@@ -1472,7 +1560,7 @@ If the formats are violated, error message with correct usage will be prompted.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-use-what-kind-of-file"><a class="link" href="#aspect-use-what-kind-of-file">Aspect: Use what kind of file</a></h5>
 <div class="ulist">
@@ -2221,4 +2309,4 @@ Invalid commands like <code>showtime sfsf</code> will prompt error message with 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:25:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:02:10 UTC</div></div></div></body></html>

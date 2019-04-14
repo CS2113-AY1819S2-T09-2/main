@@ -284,13 +284,13 @@ For example:</p>
 <p>login</p>
 </li>
 <li>
-<p>loginStatus</p>
+<p>loginstatus</p>
 </li>
 <li>
-<p>listAccounts</p>
+<p>listaccounts</p>
 </li>
 <li>
-<p>findAccount</p>
+<p>findaccount</p>
 </li>
 <li>
 <p>help</p>
@@ -366,7 +366,7 @@ login with the default account if an account has already logged in Tasketch..<br
 <p>Add a new account to Tasketch</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addAccount u/USERNAME p/PASSWORD</code></p>
+<p>Format: <code>addaccount u/USERNAME p/PASSWORD</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -374,11 +374,11 @@ login with the default account if an account has already logged in Tasketch..<br
 <div class="ulist">
 <ul>
 <li>
-<p><code>addAccount u/wan p/123456</code><br>
+<p><code>addaccount u/wan p/123456</code><br>
 Add a new account whose name is "wan" and password is "123456".</p>
 </li>
 <li>
-<p><code>addAccount u/John p/541623</code><br>
+<p><code>addaccount u/John p/541623</code><br>
 Add a new account whose name is "John" and password is "541623".</p>
 </li>
 </ul>
@@ -400,7 +400,7 @@ You should see the account has been added to the accountlist if you execute <cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>listAccounts</code><br>
+<p><code>listaccounts</code><br>
 Lists all the accounts in the accountlist</p>
 </li>
 </ul>
@@ -411,7 +411,7 @@ Lists all the accounts in the accountlist</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>listAccounts</code><br>
+<p><code>listaccounts</code><br>
 Lists all the accounts in the accountlist</p>
 </li>
 </ul>
@@ -426,7 +426,7 @@ You should see a list of all the accounts in the Result Box.<br>
 <h3 id="editaccount"><a class="link" href="#editaccount">4.4. EditAccount</a></h3>
 <div class="paragraph">
 <p>Edit a existed account with its username and password.
-Format: <code>editAccount INDEX u/USERNAME [p/PASSWORD]</code></p>
+Format: <code>editaccount INDEX u/USERNAME [p/PASSWORD]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -451,20 +451,20 @@ Format: <code>editAccount INDEX u/USERNAME [p/PASSWORD]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editAccount 2 p/123123</code><br>
+<p><code>editaccount 2 p/123123</code><br>
 Changes the password of the second account to 123123!</p>
 </li>
 <li>
-<p><code>editAccount 2 u/John</code><br>
+<p><code>editaccount 2 u/John</code><br>
 Changes the username of the second account to John!</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Result:<br>
-Before execute  <code>editAccount 2 u/John</code>:<br>
+Before execute  <code>editaccount 2 u/John</code>:<br>
 <span class="image"><img src="images/editAccount1.png" alt="editAccount1" width="790"></span>+
-After execute <code>editAccount 2 u/John</code>:<br>
+After execute <code>editaccount 2 u/John</code>:<br>
 <span class="image"><img src="images/editAccount2.png" alt="editAccount2" width="790"></span></p>
 </div>
 </div>
@@ -474,7 +474,7 @@ After execute <code>editAccount 2 u/John</code>:<br>
 <p>Finds accounts whose username contain the given keywords.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>findAccount KEYWORD</code></p>
+<p>Format: <code>findaccount KEYWORD</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -496,11 +496,11 @@ After execute <code>editAccount 2 u/John</code>:<br>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findAccount ad</code><br>
+<p><code>findaccount ad</code><br>
 Returns <code>admin</code>.</p>
 </li>
 <li>
-<p><code>findAccount AdMin</code><br>
+<p><code>findaccount AdMin</code><br>
 Returns <code>admin</code>.</p>
 </li>
 </ul>
@@ -512,7 +512,7 @@ Returns <code>admin</code>.</p>
 <p>Deletes a specified account from Tasketch.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deleteAccount INDEX_NUMBER</code></p>
+<p>Format: <code>deleteaccount INDEX_NUMBER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -534,8 +534,8 @@ Returns <code>admin</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>listAccounts</code><br>
-<code>delete 2</code><br>
+<p><code>listaccounts</code><br>
+<code>deleteaccount 2</code><br>
 Deletes the account with index number 2 in task list.</p>
 </li>
 </ul>
@@ -551,7 +551,7 @@ The account of the index number you choose should be delete from accountlist.</p
 <p>Shows whether the user log in Tasketch and which account the user logged in.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loginStatus</code></p>
+<p>Format: <code>loginstatus</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -559,12 +559,12 @@ The account of the index number you choose should be delete from accountlist.</p
 <div class="ulist">
 <ul>
 <li>
-<p><code>loginStatus</code><br>
+<p><code>loginstatus</code><br>
 If you do not login with any accounts, return <code>Not logged in</code>.
 <span class="image"><img src="images/loginStatus.png" alt="loginStatus" width="790"></span></p>
 </li>
 <li>
-<p><code>loginStatus</code><br>
+<p><code>loginstatus</code><br>
 If you login with default account, return <code>Logged in as: admin</code>.
 <span class="image"><img src="images/loginStatus1.png" alt="loginStatus1" width="790"></span></p>
 </li>
@@ -1330,7 +1330,7 @@ Although there are more than 2 alphabets different from the correct command, the
 <p>If you want to type <code>list</code>, you can type <code>li</code> instead, and press <code>TAB</code> on keyboard. The system will automatically fulfill the command in command line with <code>list</code>.</p>
 </li>
 <li>
-<p>If you want to type <code>histoy</code>, but you type <code>histoy</code> instead, and press <code>tap</code> on keyboard. The system will automatically fulfill the command line with <code>history</code>.</p>
+<p>If you want to type <code>history</code>, but you type <code>histoe</code> instead, and press <code>tap</code> on keyboard. The system will automatically fulfill the command line with <code>history</code>.</p>
 </li>
 <li>
 <p>If you want to type <code>add</code>, but you type <code>aefw</code> instead, and press <code>tap</code> on keyboard. The system will automatically fulfill the command line with <code>No command matched</code>.</p>
@@ -1620,4 +1620,4 @@ e.g. <code>showtime 13-02-19</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 11:25:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 12:02:10 UTC</div></div></div></body></html>
